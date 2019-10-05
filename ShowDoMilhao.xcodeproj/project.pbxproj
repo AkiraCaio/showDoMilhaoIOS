@@ -15,6 +15,7 @@
 		A3BC81522349251E0045E623 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A3BC81502349251E0045E623 /* LaunchScreen.storyboard */; };
 		A3BC815E23492D830045E623 /* Pergunta.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BC815D23492D830045E623 /* Pergunta.swift */; };
 		A3BC816023492F060045E623 /* Jogador.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BC815F23492F060045E623 /* Jogador.swift */; };
+		A3BC816323493A990045E623 /* perguntas.txt in Resources */ = {isa = PBXBuildFile; fileRef = A3BC816223493A990045E623 /* perguntas.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		A3BC81532349251E0045E623 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A3BC815D23492D830045E623 /* Pergunta.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pergunta.swift; sourceTree = "<group>"; };
 		A3BC815F23492F060045E623 /* Jogador.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Jogador.swift; sourceTree = "<group>"; };
+		A3BC816223493A990045E623 /* perguntas.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = perguntas.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 				A3BC815A23492AE10045E623 /* Base */,
 				A3BC815B23492AEA0045E623 /* Controller */,
 				A3BC815C23492C780045E623 /* Model */,
+				A3BC8161234939F70045E623 /* Resources */,
 				A3BC81532349251E0045E623 /* Info.plist */,
 			);
 			path = ShowDoMilhao;
@@ -103,6 +106,14 @@
 				A3BC815F23492F060045E623 /* Jogador.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		A3BC8161234939F70045E623 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A3BC816223493A990045E623 /* perguntas.txt */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -163,6 +174,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3BC816323493A990045E623 /* perguntas.txt in Resources */,
 				A3BC81522349251E0045E623 /* LaunchScreen.storyboard in Resources */,
 				A3BC814F2349251E0045E623 /* Assets.xcassets in Resources */,
 				A3BC814D2349251C0045E623 /* Main.storyboard in Resources */,
