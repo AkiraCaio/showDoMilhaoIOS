@@ -16,6 +16,7 @@
 		A3BC815E23492D830045E623 /* Pergunta.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BC815D23492D830045E623 /* Pergunta.swift */; };
 		A3BC816023492F060045E623 /* Jogador.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BC815F23492F060045E623 /* Jogador.swift */; };
 		A3BC816323493A990045E623 /* perguntas.txt in Resources */ = {isa = PBXBuildFile; fileRef = A3BC816223493A990045E623 /* perguntas.txt */; };
+		A3BC816723493C160045E623 /* ExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BC816623493C160045E623 /* ExtensionViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		A3BC815D23492D830045E623 /* Pergunta.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pergunta.swift; sourceTree = "<group>"; };
 		A3BC815F23492F060045E623 /* Jogador.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Jogador.swift; sourceTree = "<group>"; };
 		A3BC816223493A990045E623 /* perguntas.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = perguntas.txt; sourceTree = "<group>"; };
+		A3BC816623493C160045E623 /* ExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +77,7 @@
 		A3BC815923492AD40045E623 /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				A3BC816423493BE80045E623 /* Extension */,
 				A3BC81452349251C0045E623 /* AppDelegate.swift */,
 				A3BC81472349251C0045E623 /* SceneDelegate.swift */,
 				A3BC814E2349251E0045E623 /* Assets.xcassets */,
@@ -114,6 +117,14 @@
 				A3BC816223493A990045E623 /* perguntas.txt */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		A3BC816423493BE80045E623 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				A3BC816623493C160045E623 /* ExtensionViewController.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -190,6 +201,7 @@
 			files = (
 				A3BC814A2349251C0045E623 /* ViewController.swift in Sources */,
 				A3BC81462349251C0045E623 /* AppDelegate.swift in Sources */,
+				A3BC816723493C160045E623 /* ExtensionViewController.swift in Sources */,
 				A3BC816023492F060045E623 /* Jogador.swift in Sources */,
 				A3BC81482349251C0045E623 /* SceneDelegate.swift in Sources */,
 				A3BC815E23492D830045E623 /* Pergunta.swift in Sources */,

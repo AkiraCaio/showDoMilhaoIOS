@@ -12,9 +12,16 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        let path = URL(fileURLWithPath: Bundle.main.path(forResource: "perguntas", ofType: "txt")!)
+
+        let s = StreamReader(url: path)
+        while !s!.isAtEOF{
+            if let line = s?.nextLine() {
+                print(line)
+            }
+        }
+       
     }
-
-
 }
 
