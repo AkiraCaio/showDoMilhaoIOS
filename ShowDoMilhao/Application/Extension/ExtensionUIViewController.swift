@@ -58,5 +58,18 @@ extension UIViewController{
                 }
             } while true
         }
+        
+        static func readFile(){
+            let path = URL(fileURLWithPath: Bundle.main.path(forResource: "perguntas", ofType: "txt")!)
+        
+            if let s = StreamReader(url: path){
+                while !s.isAtEOF{
+                    if let line = s.nextLine() {
+                        print(line)
+                    }
+                }
+            }
+        }
+        
     }
 }
