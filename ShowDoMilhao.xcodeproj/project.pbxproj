@@ -7,23 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A3B08F3423494D6B002B491F /* ProximaPerguntaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B08F3323494D6B002B491F /* ProximaPerguntaViewController.swift */; };
 		A3BC81462349251C0045E623 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BC81452349251C0045E623 /* AppDelegate.swift */; };
 		A3BC81482349251C0045E623 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BC81472349251C0045E623 /* SceneDelegate.swift */; };
-		A3BC814A2349251C0045E623 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BC81492349251C0045E623 /* ViewController.swift */; };
+		A3BC814A2349251C0045E623 /* InitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BC81492349251C0045E623 /* InitViewController.swift */; };
 		A3BC814D2349251C0045E623 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A3BC814B2349251C0045E623 /* Main.storyboard */; };
 		A3BC814F2349251E0045E623 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3BC814E2349251E0045E623 /* Assets.xcassets */; };
 		A3BC81522349251E0045E623 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A3BC81502349251E0045E623 /* LaunchScreen.storyboard */; };
 		A3BC815E23492D830045E623 /* Pergunta.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BC815D23492D830045E623 /* Pergunta.swift */; };
 		A3BC816023492F060045E623 /* Jogador.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BC815F23492F060045E623 /* Jogador.swift */; };
 		A3BC816323493A990045E623 /* perguntas.txt in Resources */ = {isa = PBXBuildFile; fileRef = A3BC816223493A990045E623 /* perguntas.txt */; };
-		A3BC816723493C160045E623 /* ExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BC816623493C160045E623 /* ExtensionViewController.swift */; };
+		A3BC816723493C160045E623 /* ExtensionUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BC816623493C160045E623 /* ExtensionUIViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A3B08F3323494D6B002B491F /* ProximaPerguntaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProximaPerguntaViewController.swift; sourceTree = "<group>"; };
 		A3BC81422349251C0045E623 /* ShowDoMilhao.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShowDoMilhao.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3BC81452349251C0045E623 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A3BC81472349251C0045E623 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		A3BC81492349251C0045E623 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A3BC81492349251C0045E623 /* InitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitViewController.swift; sourceTree = "<group>"; };
 		A3BC814C2349251C0045E623 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A3BC814E2349251E0045E623 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A3BC81512349251E0045E623 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -31,7 +33,7 @@
 		A3BC815D23492D830045E623 /* Pergunta.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pergunta.swift; sourceTree = "<group>"; };
 		A3BC815F23492F060045E623 /* Jogador.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Jogador.swift; sourceTree = "<group>"; };
 		A3BC816223493A990045E623 /* perguntas.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = perguntas.txt; sourceTree = "<group>"; };
-		A3BC816623493C160045E623 /* ExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionViewController.swift; sourceTree = "<group>"; };
+		A3BC816623493C160045E623 /* ExtensionUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionUIViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,7 +99,8 @@
 		A3BC815B23492AEA0045E623 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				A3BC81492349251C0045E623 /* ViewController.swift */,
+				A3BC81492349251C0045E623 /* InitViewController.swift */,
+				A3B08F3323494D6B002B491F /* ProximaPerguntaViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -122,7 +125,7 @@
 		A3BC816423493BE80045E623 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				A3BC816623493C160045E623 /* ExtensionViewController.swift */,
+				A3BC816623493C160045E623 /* ExtensionUIViewController.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -199,9 +202,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A3BC814A2349251C0045E623 /* ViewController.swift in Sources */,
+				A3BC814A2349251C0045E623 /* InitViewController.swift in Sources */,
 				A3BC81462349251C0045E623 /* AppDelegate.swift in Sources */,
-				A3BC816723493C160045E623 /* ExtensionViewController.swift in Sources */,
+				A3B08F3423494D6B002B491F /* ProximaPerguntaViewController.swift in Sources */,
+				A3BC816723493C160045E623 /* ExtensionUIViewController.swift in Sources */,
 				A3BC816023492F060045E623 /* Jogador.swift in Sources */,
 				A3BC81482349251C0045E623 /* SceneDelegate.swift in Sources */,
 				A3BC815E23492D830045E623 /* Pergunta.swift in Sources */,
