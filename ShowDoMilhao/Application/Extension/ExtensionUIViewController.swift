@@ -58,18 +58,75 @@ extension UIViewController{
                 }
             } while true
         }
-        
-        static func readFile(){
+                
+        static func readFile() -> [Pergunta] {
+            var perguntas: [Pergunta] = []
+            
+            //Conta o ID das perguntas
+            var countID: Int = 0
+            //Conta quantidade de #
+            var countDificuldade: Int = -1
+            
+            var pergunta: Pergunta = Pergunta(id: 0)
+            
             let path = URL(fileURLWithPath: Bundle.main.path(forResource: "perguntas", ofType: "txt")!)
-        
+            
             if let s = StreamReader(url: path){
+                
                 while !s.isAtEOF{
-                    if let line = s.nextLine() {
-                        print(line)
+                    if (pergunta.id != countID){
+                        pergunta = Pergunta(id: countID)
+                    }
+                    
+                    guard let line = s.nextLine() else { break }
+                    
+                    if (!line.isEmpty){
+                        
+                        if (countDificuldade < 3) {
+                            
+                            switch line.prefix(1) {
+                                
+                            case "#":
+                                countDificuldade += 1
+                                
+                                if (countDificuldade == 3) {
+                                    countID = 0
+                                }
+                                
+                            case "1", "2", "3":
+                                pergunta.alternativas.append(line)
+                                
+                            case "4":
+                                pergunta.alternativas.append(line)
+                                
+                                switch countDificuldade {
+                                case 0:
+                                    pergunta.dificuldade = .FACIL
+                                case 1:
+                                    pergunta.dificuldade = .MEDIO
+                                case 2:
+                                    pergunta.dificuldade = .DIFICIL
+                                default:
+                                    break
+                                }
+                                
+                                perguntas.append(pergunta)
+                                
+                                countID += 1
+                                
+                            default:
+                                pergunta.titulo = line
+                            }
+                            
+                        }else{
+                            perguntas[countID].resposta = Int(line) ?? 0
+                            countID += 1
+                        }
                     }
                 }
             }
+            
+            return perguntas
         }
-        
     }
 }

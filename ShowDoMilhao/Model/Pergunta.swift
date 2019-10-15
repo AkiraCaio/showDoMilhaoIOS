@@ -16,6 +16,14 @@ class Pergunta {
     var resposta: Int
     var dificuldade: Dificuldade
     
+    init(id: Int) {
+        self.id = id
+        self.titulo = ""
+        self.alternativas = []
+        self.resposta = 0
+        self.dificuldade = .FACIL
+    }
+    
     init(id: Int, titulo: String, alternativas: [String], resposta: Int, dificuldade: Dificuldade) {
         self.id = id
         self.titulo = titulo

@@ -9,10 +9,14 @@
 import UIKit
 
 class ProximaPerguntaViewController: UIViewController {
-
+    
+    let perguntas: [Pergunta] = StreamReader.readFile()
+    
+    let oi = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
     }
 
