@@ -3,11 +3,14 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9857F55C40B463ED8A820373 /* Pods_ShowDoMilhao.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1AEC575BD212BBDA90739D4 /* Pods_ShowDoMilhao.framework */; };
+		A3A767A82355FCB00069AFA3 /* Pergunta.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A3A767A72355FCB00069AFA3 /* Pergunta.storyboard */; };
 		A3B08F3423494D6B002B491F /* ProximaPerguntaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B08F3323494D6B002B491F /* ProximaPerguntaViewController.swift */; };
+		A3B1DBDF2355E936003049A1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A3B1DBDE2355E936003049A1 /* GoogleService-Info.plist */; };
 		A3BC81462349251C0045E623 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BC81452349251C0045E623 /* AppDelegate.swift */; };
 		A3BC81482349251C0045E623 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BC81472349251C0045E623 /* SceneDelegate.swift */; };
 		A3BC814A2349251C0045E623 /* InitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BC81492349251C0045E623 /* InitViewController.swift */; };
@@ -21,7 +24,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		957F2AEA8594DF09423527D1 /* Pods-ShowDoMilhao.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShowDoMilhao.release.xcconfig"; path = "Target Support Files/Pods-ShowDoMilhao/Pods-ShowDoMilhao.release.xcconfig"; sourceTree = "<group>"; };
+		95A6AB00E69EE927087E75EB /* Pods-ShowDoMilhao.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShowDoMilhao.debug.xcconfig"; path = "Target Support Files/Pods-ShowDoMilhao/Pods-ShowDoMilhao.debug.xcconfig"; sourceTree = "<group>"; };
+		A3A767A72355FCB00069AFA3 /* Pergunta.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Pergunta.storyboard; sourceTree = "<group>"; };
 		A3B08F3323494D6B002B491F /* ProximaPerguntaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProximaPerguntaViewController.swift; sourceTree = "<group>"; };
+		A3B1DBDE2355E936003049A1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A3BC81422349251C0045E623 /* ShowDoMilhao.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShowDoMilhao.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3BC81452349251C0045E623 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A3BC81472349251C0045E623 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -34,6 +41,7 @@
 		A3BC815F23492F060045E623 /* Jogador.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Jogador.swift; sourceTree = "<group>"; };
 		A3BC816223493A990045E623 /* perguntas.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = perguntas.txt; sourceTree = "<group>"; };
 		A3BC816623493C160045E623 /* ExtensionUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionUIViewController.swift; sourceTree = "<group>"; };
+		E1AEC575BD212BBDA90739D4 /* Pods_ShowDoMilhao.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShowDoMilhao.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,15 +49,26 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9857F55C40B463ED8A820373 /* Pods_ShowDoMilhao.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		71CD7DD5E6267C3E982AABF7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				95A6AB00E69EE927087E75EB /* Pods-ShowDoMilhao.debug.xcconfig */,
+				957F2AEA8594DF09423527D1 /* Pods-ShowDoMilhao.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		A3B1DBDA2355E326003049A1 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				A3BC814B2349251C0045E623 /* Main.storyboard */,
 				A3B1DBDC2355E388003049A1 /* Controller */,
 				A3B1DBDB2355E33B003049A1 /* Model */,
 			);
@@ -75,6 +94,7 @@
 		A3B1DBDD2355E3B0003049A1 /* Perguntas */ = {
 			isa = PBXGroup;
 			children = (
+				A3A767A72355FCB00069AFA3 /* Pergunta.storyboard */,
 				A3BC815B23492AEA0045E623 /* Controller */,
 				A3BC815C23492C780045E623 /* Model */,
 			);
@@ -86,6 +106,8 @@
 			children = (
 				A3BC81442349251C0045E623 /* ShowDoMilhao */,
 				A3BC81432349251C0045E623 /* Products */,
+				71CD7DD5E6267C3E982AABF7 /* Pods */,
+				E9D255CD264D47631BB798EB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -106,6 +128,7 @@
 				A3B1DBDA2355E326003049A1 /* Login */,
 				A3B1DBDD2355E3B0003049A1 /* Perguntas */,
 				A3BC81532349251E0045E623 /* Info.plist */,
+				A3B1DBDE2355E936003049A1 /* GoogleService-Info.plist */,
 			);
 			path = ShowDoMilhao;
 			sourceTree = "<group>";
@@ -124,7 +147,6 @@
 		A3BC815A23492AE10045E623 /* Base */ = {
 			isa = PBXGroup;
 			children = (
-				A3BC814B2349251C0045E623 /* Main.storyboard */,
 				A3BC81502349251E0045E623 /* LaunchScreen.storyboard */,
 			);
 			path = Base;
@@ -162,6 +184,14 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
+		E9D255CD264D47631BB798EB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E1AEC575BD212BBDA90739D4 /* Pods_ShowDoMilhao.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -169,9 +199,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A3BC81562349251E0045E623 /* Build configuration list for PBXNativeTarget "ShowDoMilhao" */;
 			buildPhases = (
+				66505FED5E9A7FD9502FE4AE /* [CP] Check Pods Manifest.lock */,
 				A3BC813E2349251C0045E623 /* Sources */,
 				A3BC813F2349251C0045E623 /* Frameworks */,
 				A3BC81402349251C0045E623 /* Resources */,
+				16AB50AE87FC5EAD471BE6D9 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -222,12 +254,56 @@
 			files = (
 				A3BC816323493A990045E623 /* perguntas.txt in Resources */,
 				A3BC81522349251E0045E623 /* LaunchScreen.storyboard in Resources */,
+				A3A767A82355FCB00069AFA3 /* Pergunta.storyboard in Resources */,
+				A3B1DBDF2355E936003049A1 /* GoogleService-Info.plist in Resources */,
 				A3BC814F2349251E0045E623 /* Assets.xcassets in Resources */,
 				A3BC814D2349251C0045E623 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		16AB50AE87FC5EAD471BE6D9 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ShowDoMilhao/Pods-ShowDoMilhao-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ShowDoMilhao/Pods-ShowDoMilhao-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ShowDoMilhao/Pods-ShowDoMilhao-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		66505FED5E9A7FD9502FE4AE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ShowDoMilhao-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A3BC813E2349251C0045E623 /* Sources */ = {
@@ -382,6 +458,7 @@
 		};
 		A3BC81572349251E0045E623 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 95A6AB00E69EE927087E75EB /* Pods-ShowDoMilhao.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -400,6 +477,7 @@
 		};
 		A3BC81582349251E0045E623 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 957F2AEA8594DF09423527D1 /* Pods-ShowDoMilhao.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

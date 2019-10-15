@@ -27,6 +27,7 @@ class InitViewController: UIViewController {
         self.setupLayout()
     }
     
+    //MARK: LAYOUT DA TELA
     func setupLayout (){
         self.setupButtonLayout()
     }
@@ -43,9 +44,12 @@ class InitViewController: UIViewController {
         ])
     }
     
+    //MARK: INICIA JOGO
     @objc func iniciarJogo(sender: UIButton!){
-        let controller = self.storyboard?.instantiateViewController(withIdentifier: "ProximaPerguntaViewController") as! ProximaPerguntaViewController
+        let storyboard = UIStoryboard(name: "Pergunta", bundle: nil)
         
+        let controller = storyboard.instantiateViewController(withIdentifier: "ProximaPerguntaViewController") as! ProximaPerguntaViewController
+
         self.navigationController?.pushViewController(controller, animated: true)
     }
 }
