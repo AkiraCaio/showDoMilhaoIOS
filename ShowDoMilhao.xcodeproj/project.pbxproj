@@ -47,6 +47,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A3B1DBDA2355E326003049A1 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				A3B1DBDC2355E388003049A1 /* Controller */,
+				A3B1DBDB2355E33B003049A1 /* Model */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		A3B1DBDB2355E33B003049A1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A3BC815F23492F060045E623 /* Jogador.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		A3B1DBDC2355E388003049A1 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				A3BC81492349251C0045E623 /* InitViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		A3B1DBDD2355E3B0003049A1 /* Perguntas */ = {
+			isa = PBXGroup;
+			children = (
+				A3BC815B23492AEA0045E623 /* Controller */,
+				A3BC815C23492C780045E623 /* Model */,
+			);
+			path = Perguntas;
+			sourceTree = "<group>";
+		};
 		A3BC81392349251C0045E623 = {
 			isa = PBXGroup;
 			children = (
@@ -68,9 +102,9 @@
 			children = (
 				A3BC815923492AD40045E623 /* Application */,
 				A3BC815A23492AE10045E623 /* Base */,
-				A3BC815B23492AEA0045E623 /* Controller */,
-				A3BC815C23492C780045E623 /* Model */,
 				A3BC8161234939F70045E623 /* Resources */,
+				A3B1DBDA2355E326003049A1 /* Login */,
+				A3B1DBDD2355E3B0003049A1 /* Perguntas */,
 				A3BC81532349251E0045E623 /* Info.plist */,
 			);
 			path = ShowDoMilhao;
@@ -99,7 +133,6 @@
 		A3BC815B23492AEA0045E623 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				A3BC81492349251C0045E623 /* InitViewController.swift */,
 				A3B08F3323494D6B002B491F /* ProximaPerguntaViewController.swift */,
 			);
 			path = Controller;
@@ -109,7 +142,6 @@
 			isa = PBXGroup;
 			children = (
 				A3BC815D23492D830045E623 /* Pergunta.swift */,
-				A3BC815F23492F060045E623 /* Jogador.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
