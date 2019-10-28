@@ -7,28 +7,52 @@
 //
 
 import UIKit
+import Firebase
+
 
 class InitViewController: UIViewController {
+    
+    var handle: AuthStateDidChangeListenerHandle?
     
     var iniciarJogoButton: UIButton = {
         let button = UIButton()
         button.setTitle("Iniciar Jogo", for: UIControl.State.normal)
-        button.setTitleColor(.black, for: UIControl.State.normal)
+//        button.setTitleColor(.black, for: UIControl.State.normal)
         button.addTarget(self, action: #selector(iniciarJogo(sender:)), for: .touchUpInside)
         
         return button
     }()
     
+    var verticalStackView: UIStackView = {
+        let stackView = UIStackView()
+        
+        stackView.alignment = .center
+        stackView.axis = .vertical
+        stackView.distribution = .fill
+        stackView.spacing = 20
+        
+        return stackView
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "Show do milhão"
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
-        self.setupLayout()
+        handle = Auth.auth().addStateDidChangeListener({ (auth, user) in
+            if let user = user {
+                // If user is auth
+            }else{
+                self.chamarTelaLogin()
+            }
+        })
     }
     
     //MARK: LAYOUT DA TELA
-    func setupLayout (){
+    func setupLayoutAfterLogin (){
         self.setupButtonLayout()
     }
     
@@ -52,5 +76,13 @@ class InitViewController: UIViewController {
 
         self.navigationController?.pushViewController(controller, animated: true)
     }
+    
+    private func chamarTelaLogin() {
+        let controller = storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+                
+        controller.modalPresentationStyle = .fullScreen
+        controller.modalTransitionStyle = .coverVertical
+        
+        self.present(controller, animated: true)	
+    }
 }
-

@@ -10,7 +10,6 @@
         <!--Init View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="InitViewController" id="BYZ-38-t0r" customClass="InitViewController" customModule="ShowDoMilhao" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="m7d-xw-zFV">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -20,8 +19,24 @@
                     </view>
                     <navigationItem key="navigationItem" id="tWQ-Rc-B7T"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1900.0000000000002" y="126.5625"/>
+        </scene>
+        <!--Login View Controller-->
+        <scene sceneID="msj-xh-fD9">
+            <objects>
+                <viewController storyboardIdentifier="LoginViewController" id="31j-sf-0JZ" customClass="LoginViewController" customModule="ShowDoMilhao" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="PDp-FM-xYp">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="Gfd-fl-SHj"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Hj5-TE-v27" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2746" y="127"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="qWa-zo-r98">

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		9857F55C40B463ED8A820373 /* Pods_ShowDoMilhao.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1AEC575BD212BBDA90739D4 /* Pods_ShowDoMilhao.framework */; };
+		A30C9857235D0C5800A20323 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30C9856235D0C5800A20323 /* LoginViewController.swift */; };
 		A3A767A82355FCB00069AFA3 /* Pergunta.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A3A767A72355FCB00069AFA3 /* Pergunta.storyboard */; };
 		A3B08F3423494D6B002B491F /* ProximaPerguntaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B08F3323494D6B002B491F /* ProximaPerguntaViewController.swift */; };
 		A3B1DBDF2355E936003049A1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A3B1DBDE2355E936003049A1 /* GoogleService-Info.plist */; };
@@ -21,11 +22,13 @@
 		A3BC816023492F060045E623 /* Jogador.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BC815F23492F060045E623 /* Jogador.swift */; };
 		A3BC816323493A990045E623 /* perguntas.txt in Resources */ = {isa = PBXBuildFile; fileRef = A3BC816223493A990045E623 /* perguntas.txt */; };
 		A3BC816723493C160045E623 /* ExtensionUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BC816623493C160045E623 /* ExtensionUIViewController.swift */; };
+		A3DC40B5235DEC53009F19F3 /* ExtensionUITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DC40B4235DEC53009F19F3 /* ExtensionUITextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		957F2AEA8594DF09423527D1 /* Pods-ShowDoMilhao.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShowDoMilhao.release.xcconfig"; path = "Target Support Files/Pods-ShowDoMilhao/Pods-ShowDoMilhao.release.xcconfig"; sourceTree = "<group>"; };
 		95A6AB00E69EE927087E75EB /* Pods-ShowDoMilhao.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShowDoMilhao.debug.xcconfig"; path = "Target Support Files/Pods-ShowDoMilhao/Pods-ShowDoMilhao.debug.xcconfig"; sourceTree = "<group>"; };
+		A30C9856235D0C5800A20323 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		A3A767A72355FCB00069AFA3 /* Pergunta.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Pergunta.storyboard; sourceTree = "<group>"; };
 		A3B08F3323494D6B002B491F /* ProximaPerguntaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProximaPerguntaViewController.swift; sourceTree = "<group>"; };
 		A3B1DBDE2355E936003049A1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -41,6 +44,7 @@
 		A3BC815F23492F060045E623 /* Jogador.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Jogador.swift; sourceTree = "<group>"; };
 		A3BC816223493A990045E623 /* perguntas.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = perguntas.txt; sourceTree = "<group>"; };
 		A3BC816623493C160045E623 /* ExtensionUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionUIViewController.swift; sourceTree = "<group>"; };
+		A3DC40B4235DEC53009F19F3 /* ExtensionUITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionUITextField.swift; sourceTree = "<group>"; };
 		E1AEC575BD212BBDA90739D4 /* Pods_ShowDoMilhao.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShowDoMilhao.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -87,6 +91,7 @@
 			isa = PBXGroup;
 			children = (
 				A3BC81492349251C0045E623 /* InitViewController.swift */,
+				A30C9856235D0C5800A20323 /* LoginViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -180,6 +185,7 @@
 			isa = PBXGroup;
 			children = (
 				A3BC816623493C160045E623 /* ExtensionUIViewController.swift */,
+				A3DC40B4235DEC53009F19F3 /* ExtensionUITextField.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -313,7 +319,9 @@
 				A3BC814A2349251C0045E623 /* InitViewController.swift in Sources */,
 				A3BC81462349251C0045E623 /* AppDelegate.swift in Sources */,
 				A3B08F3423494D6B002B491F /* ProximaPerguntaViewController.swift in Sources */,
+				A3DC40B5235DEC53009F19F3 /* ExtensionUITextField.swift in Sources */,
 				A3BC816723493C160045E623 /* ExtensionUIViewController.swift in Sources */,
+				A30C9857235D0C5800A20323 /* LoginViewController.swift in Sources */,
 				A3BC816023492F060045E623 /* Jogador.swift in Sources */,
 				A3BC81482349251C0045E623 /* SceneDelegate.swift in Sources */,
 				A3BC815E23492D830045E623 /* Pergunta.swift in Sources */,
