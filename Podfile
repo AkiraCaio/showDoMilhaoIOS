@@ -6,6 +6,7 @@ target 'ShowDoMilhao' do
   # add the Firebase pod for Google Analytics
   pod 'Firebase/Analytics'
   pod 'Firebase/Auth'
-
+  pod 'Firebase/Database'
+  pod 'SVProgressHUD'
 
 end

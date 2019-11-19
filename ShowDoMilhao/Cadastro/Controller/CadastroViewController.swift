@@ -1,25 +1,23 @@
 //
-//  LoginViewController.swift
+//  CadastroViewController.swift
 //  ShowDoMilhao
 //
-//  Created by akiracaio on 20/10/19.
+//  Created by akiracaio on 07/11/19.
 //  Copyright © 2019 osGods. All rights reserved.
 //
 
 import UIKit
 import Firebase
 
-protocol LoginViewControllerDelegate {
-    func chamarTelaCadastro()
+protocol CadastroViewControllerDelegate {
+    func chamarTelaLoginDoCadastro()
 }
 
-class LoginViewController: UIViewController {
+class CadastroViewController: UIViewController {
     
     var ref: DatabaseReference!
     
-    var delegate: LoginViewControllerDelegate!
-    
-    var peaoDaCasaPropriaEnable = false
+    var delegate: CadastroViewControllerDelegate!
     
     //MARK: Criando a TitleLabel
     var titleLabel: UILabel = {
@@ -27,7 +25,7 @@ class LoginViewController: UIViewController {
         
         label.translatesAutoresizingMaskIntoConstraints = false
         
-        label.text = "Log in"
+        label.text = "Cadastro"
         label.font = UIFont.boldSystemFont(ofSize: 37)
         
         return label
@@ -49,7 +47,7 @@ class LoginViewController: UIViewController {
         var label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         
-        label.text = "Por favor logue na sua conta para continuar usando o show do milhao."
+        label.text = "Por favor se cadastre para continuar usando o show do milhao"
         label.numberOfLines = 0
         
         return label
@@ -61,7 +59,7 @@ class LoginViewController: UIViewController {
         
         textField.translatesAutoresizingMaskIntoConstraints = false
         
-        textField.setIcon(#imageLiteral(resourceName: "iconeLogin"))
+        textField.setIcon(#imageLiteral(resourceName: "iconeEmail"))
         textField.tintColor = UIColor.blue
         textField.placeholder = "Email"
         textField.borderStyle = UITextField.BorderStyle.roundedRect
@@ -86,18 +84,6 @@ class LoginViewController: UIViewController {
         return textField
     }()
     
-    //MARK: Criando o esqueceuSenhaButton
-    var esqueceuSenhaButton: UIButton = {
-        let button = UIButton()
-        
-        button.translatesAutoresizingMaskIntoConstraints = false
-        
-        button.addTarget(self, action: #selector(LoginViewController.esqueceuSenha), for: .touchDown)
-        button.setTitle("Esqueceu a senha?", for: .normal)
-        button.setTitleColor(.black, for: .normal)
-        
-        return button
-    }()
     
     //MARK: Criando o LogarButton
     var acaoDaTelaButton: UIButton = {
@@ -105,11 +91,11 @@ class LoginViewController: UIViewController {
         
         button.translatesAutoresizingMaskIntoConstraints = false
         
-        button.addTarget(self, action: #selector(LoginViewController.acaoTela), for: .touchDown)
+        button.addTarget(self, action: #selector(CadastroViewController.acaoTela), for: .touchDown)
         
         button.backgroundColor = UIColor.blue
         
-        button.setTitle("Logar", for: .normal)
+        button.setTitle("Cadastrar", for: .normal)
         
         button.layer.cornerRadius = 0.5 * button.frame.size.height
         
@@ -125,13 +111,27 @@ class LoginViewController: UIViewController {
         return button
     }()
     
+    var userName: UITextField = {
+        var textField = UITextField()
+        
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        
+        textField.setIcon(#imageLiteral(resourceName: "iconeLogin"))
+        textField.tintColor = UIColor.blue
+        textField.placeholder = "Nome"
+        textField.borderStyle = UITextField.BorderStyle.roundedRect
+        textField.keyboardType = .emailAddress
+        
+        return textField
+    }()
+    
     //MARK: Criando a labelPossuiConta
     var avisaAcaoTela: UILabel = {
         var label = UILabel()
         
         label.translatesAutoresizingMaskIntoConstraints = false
         
-        label.text = "Não possui uma conta?"
+        label.text = "Ja possui uma conta?"
         label.textAlignment = .center
         
         return label
@@ -144,9 +144,9 @@ class LoginViewController: UIViewController {
         
         button.translatesAutoresizingMaskIntoConstraints = false
         
-        button.addTarget(self, action: #selector(LoginViewController.trocarTela), for: .touchDown)
+        button.addTarget(self, action: #selector(CadastroViewController.trocarTela), for: .touchDown)
         
-        button.setTitle("Cadastrar", for: .normal)
+        button.setTitle("Log in", for: .normal)
         button.setTitleColor(.blue, for: .normal)
         
         return button
@@ -161,28 +161,32 @@ class LoginViewController: UIViewController {
         self.setupLayout()
     }
     
-    @objc private func esqueceuSenha(){
-        print("Que pena em")
-        self.showToast(error: false, message: "MAOOOEEEEE")
-    }
-    
     @objc private func acaoTela(){
-        Auth.auth().signIn(withEmail: self.emailTextField.text!, password: self.senhaTextField.text!) { [weak self] user, error in
-         
+        
+        Auth.auth().createUser(withEmail: self.emailTextField.text!, password: self.senhaTextField.text!) { authResult, error in
+            
             if let error = error {
-                self?.showToast(error: true, message: error.localizedDescription)
+                self.showToast(error: true, message: error.localizedDescription)
                 return
             }
             
-            if let user = user {
-                self?.showToast(error: false, message: "Bem Vindo \(user.additionalUserInfo?.username ?? "")" )
-                self?.dismiss(animated: true)
+            if let authResult = authResult {
+
+                let dict: [String : Any] = [
+                    "email" : self.emailTextField.text!,
+                    "pontos" : "0",
+                    "username" : self.userName.text ?? "-"
+                ]
+                
+                self.ref.child("users").child(authResult.user.uid).setValue(dict)
+                
+                self.dismiss(animated: true)
             }
-       }
+        }
     }
     
     @objc private func trocarTela(){
-        self.delegate.chamarTelaCadastro()
+        self.delegate.chamarTelaLoginDoCadastro()	
     }
     
     private func setupLayout(){
@@ -191,10 +195,21 @@ class LoginViewController: UIViewController {
         self.setupDescriptionView()
         self.setupEmailTextField()
         self.setupSenhaTextField()
-        self.setupEsqueceuSenhaButton()
+        self.setupUserNameTextField()
         self.setupLogarButton()
         self.setupLabelPossuiConta()
         self.setupRegistroButton()
+    }
+    
+    private func setupUserNameTextField() {
+        self.view.addSubview(self.userName)
+        
+        NSLayoutConstraint.activate([
+            self.userName.topAnchor.constraint(equalTo: self.senhaTextField.bottomAnchor, constant: 32),
+            self.userName.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 32),
+            self.userName.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: -32),
+            self.userName.heightAnchor.constraint(equalToConstant: 50)
+        ])
     }
     
     private func setupLayoutTitleLabel(){
@@ -202,7 +217,7 @@ class LoginViewController: UIViewController {
         self.view.addSubview(self.titleLabel)
         
         NSLayoutConstraint.activate([
-            self.titleLabel.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 62),
+            self.titleLabel.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 32),
             self.titleLabel.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 16),
             self.titleLabel.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: -16)
         ])
@@ -225,7 +240,7 @@ class LoginViewController: UIViewController {
         self.view.addSubview(self.descriptionLabel)
         
         NSLayoutConstraint.activate([
-            self.descriptionLabel.topAnchor.constraint(equalTo: self.emptyView.bottomAnchor, constant: 42),
+            self.descriptionLabel.topAnchor.constraint(equalTo: self.emptyView.bottomAnchor, constant: 32),
             self.descriptionLabel.leftAnchor.constraint(equalTo: self.emptyView.leftAnchor),
             self.descriptionLabel.rightAnchor.constraint(equalTo: self.titleLabel.rightAnchor),
         ])
@@ -253,21 +268,11 @@ class LoginViewController: UIViewController {
         ])
     }
     
-    private func setupEsqueceuSenhaButton() {
-        self.view.addSubview(self.esqueceuSenhaButton)
-        
-        NSLayoutConstraint.activate([
-            self.esqueceuSenhaButton.topAnchor.constraint(equalTo: self.senhaTextField.bottomAnchor, constant: 32),
-            self.esqueceuSenhaButton.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 32),
-            self.esqueceuSenhaButton.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: -32)
-        ])
-    }
-    
     private func setupLogarButton() {
         self.view.addSubview(self.acaoDaTelaButton)
         
         NSLayoutConstraint.activate([
-            self.acaoDaTelaButton.topAnchor.constraint(equalTo: self.esqueceuSenhaButton.bottomAnchor, constant: 32),
+            self.acaoDaTelaButton.topAnchor.constraint(equalTo: self.userName.bottomAnchor, constant: 32),
             self.acaoDaTelaButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
             self.acaoDaTelaButton.widthAnchor.constraint(equalToConstant: 200),
             self.acaoDaTelaButton.heightAnchor.constraint(equalToConstant: 50)
@@ -293,5 +298,4 @@ class LoginViewController: UIViewController {
             self.trocarTelaButton.bottomAnchor.constraint(lessThanOrEqualTo: self.view.bottomAnchor, constant: -16)
         ])
     }
-    
 }

@@ -9,8 +9,18 @@
 /* Begin PBXBuildFile section */
 		9857F55C40B463ED8A820373 /* Pods_ShowDoMilhao.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1AEC575BD212BBDA90739D4 /* Pods_ShowDoMilhao.framework */; };
 		A30C9857235D0C5800A20323 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30C9856235D0C5800A20323 /* LoginViewController.swift */; };
+		A31EFD06237D668800A45176 /* HeaderTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31EFD05237D668800A45176 /* HeaderTableView.swift */; };
+		A3231817237A462C00B05CDA /* StreamReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3231816237A462C00B05CDA /* StreamReader.swift */; };
+		A3239AD1237AED8100925786 /* AlternativasTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3239ACF237AED8100925786 /* AlternativasTableViewCell.swift */; };
+		A3239AD2237AED8100925786 /* AlternativasTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3239AD0237AED8100925786 /* AlternativasTableViewCell.xib */; };
+		A32523E223742B9B00B2087A /* Cadastro.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A32523E123742B9B00B2087A /* Cadastro.storyboard */; };
+		A32523E423742BD300B2087A /* CadastroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32523E323742BD300B2087A /* CadastroViewController.swift */; };
+		A326D0EE237D729E008CB91E /* PerguntaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A326D0ED237D729E008CB91E /* PerguntaViewController.swift */; };
+		A3569AB2238482A9009B1DF3 /* StatusTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3569AB0238482A9009B1DF3 /* StatusTableViewCell.swift */; };
+		A3569AB3238482A9009B1DF3 /* StatusTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3569AB1238482A9009B1DF3 /* StatusTableViewCell.xib */; };
+		A37D04B92379A0CC00AD87E8 /* IniciarJogo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37D04B82379A0CC00AD87E8 /* IniciarJogo.swift */; };
 		A3A767A82355FCB00069AFA3 /* Pergunta.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A3A767A72355FCB00069AFA3 /* Pergunta.storyboard */; };
-		A3B08F3423494D6B002B491F /* ProximaPerguntaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B08F3323494D6B002B491F /* ProximaPerguntaViewController.swift */; };
+		A3B08F3423494D6B002B491F /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B08F3323494D6B002B491F /* Home.swift */; };
 		A3B1DBDF2355E936003049A1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A3B1DBDE2355E936003049A1 /* GoogleService-Info.plist */; };
 		A3BC81462349251C0045E623 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BC81452349251C0045E623 /* AppDelegate.swift */; };
 		A3BC81482349251C0045E623 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BC81472349251C0045E623 /* SceneDelegate.swift */; };
@@ -29,8 +39,18 @@
 		957F2AEA8594DF09423527D1 /* Pods-ShowDoMilhao.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShowDoMilhao.release.xcconfig"; path = "Target Support Files/Pods-ShowDoMilhao/Pods-ShowDoMilhao.release.xcconfig"; sourceTree = "<group>"; };
 		95A6AB00E69EE927087E75EB /* Pods-ShowDoMilhao.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShowDoMilhao.debug.xcconfig"; path = "Target Support Files/Pods-ShowDoMilhao/Pods-ShowDoMilhao.debug.xcconfig"; sourceTree = "<group>"; };
 		A30C9856235D0C5800A20323 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		A31EFD05237D668800A45176 /* HeaderTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderTableView.swift; sourceTree = "<group>"; };
+		A3231816237A462C00B05CDA /* StreamReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamReader.swift; sourceTree = "<group>"; };
+		A3239ACF237AED8100925786 /* AlternativasTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlternativasTableViewCell.swift; sourceTree = "<group>"; };
+		A3239AD0237AED8100925786 /* AlternativasTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlternativasTableViewCell.xib; sourceTree = "<group>"; };
+		A32523E123742B9B00B2087A /* Cadastro.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Cadastro.storyboard; sourceTree = "<group>"; };
+		A32523E323742BD300B2087A /* CadastroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadastroViewController.swift; sourceTree = "<group>"; };
+		A326D0ED237D729E008CB91E /* PerguntaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerguntaViewController.swift; sourceTree = "<group>"; };
+		A3569AB0238482A9009B1DF3 /* StatusTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusTableViewCell.swift; sourceTree = "<group>"; };
+		A3569AB1238482A9009B1DF3 /* StatusTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StatusTableViewCell.xib; sourceTree = "<group>"; };
+		A37D04B82379A0CC00AD87E8 /* IniciarJogo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IniciarJogo.swift; sourceTree = "<group>"; };
 		A3A767A72355FCB00069AFA3 /* Pergunta.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Pergunta.storyboard; sourceTree = "<group>"; };
-		A3B08F3323494D6B002B491F /* ProximaPerguntaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProximaPerguntaViewController.swift; sourceTree = "<group>"; };
+		A3B08F3323494D6B002B491F /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		A3B1DBDE2355E936003049A1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A3BC81422349251C0045E623 /* ShowDoMilhao.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShowDoMilhao.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3BC81452349251C0045E623 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -69,6 +89,66 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		A3231815237A461D00B05CDA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A3231816237A462C00B05CDA /* StreamReader.swift */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		A3239ACD237AECA200925786 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A3569AAF238481EF009B1DF3 /* StatusCell */,
+				A3569AAE238481DC009B1DF3 /* AlternativasCell */,
+				A31EFD05237D668800A45176 /* HeaderTableView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A32523DF23742B5700B2087A /* Cadastro */ = {
+			isa = PBXGroup;
+			children = (
+				A32523E123742B9B00B2087A /* Cadastro.storyboard */,
+				A32523E023742B8300B2087A /* Controller */,
+			);
+			path = Cadastro;
+			sourceTree = "<group>";
+		};
+		A32523E023742B8300B2087A /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				A32523E323742BD300B2087A /* CadastroViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		A3569AAE238481DC009B1DF3 /* AlternativasCell */ = {
+			isa = PBXGroup;
+			children = (
+				A3239ACF237AED8100925786 /* AlternativasTableViewCell.swift */,
+				A3239AD0237AED8100925786 /* AlternativasTableViewCell.xib */,
+			);
+			name = AlternativasCell;
+			sourceTree = "<group>";
+		};
+		A3569AAF238481EF009B1DF3 /* StatusCell */ = {
+			isa = PBXGroup;
+			children = (
+				A3569AB0238482A9009B1DF3 /* StatusTableViewCell.swift */,
+				A3569AB1238482A9009B1DF3 /* StatusTableViewCell.xib */,
+			);
+			path = StatusCell;
+			sourceTree = "<group>";
+		};
+		A37D04B7237995EA00AD87E8 /* Pergunta */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Pergunta;
+			sourceTree = "<group>";
+		};
 		A3B1DBDA2355E326003049A1 /* Login */ = {
 			isa = PBXGroup;
 			children = (
@@ -96,14 +176,14 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		A3B1DBDD2355E3B0003049A1 /* Perguntas */ = {
+		A3B1DBDD2355E3B0003049A1 /* Jogar */ = {
 			isa = PBXGroup;
 			children = (
 				A3A767A72355FCB00069AFA3 /* Pergunta.storyboard */,
 				A3BC815B23492AEA0045E623 /* Controller */,
 				A3BC815C23492C780045E623 /* Model */,
 			);
-			path = Perguntas;
+			path = Jogar;
 			sourceTree = "<group>";
 		};
 		A3BC81392349251C0045E623 = {
@@ -131,7 +211,9 @@
 				A3BC815A23492AE10045E623 /* Base */,
 				A3BC8161234939F70045E623 /* Resources */,
 				A3B1DBDA2355E326003049A1 /* Login */,
-				A3B1DBDD2355E3B0003049A1 /* Perguntas */,
+				A32523DF23742B5700B2087A /* Cadastro */,
+				A3B1DBDD2355E3B0003049A1 /* Jogar */,
+				A37D04B7237995EA00AD87E8 /* Pergunta */,
 				A3BC81532349251E0045E623 /* Info.plist */,
 				A3B1DBDE2355E936003049A1 /* GoogleService-Info.plist */,
 			);
@@ -141,6 +223,7 @@
 		A3BC815923492AD40045E623 /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				A3231815237A461D00B05CDA /* Resources */,
 				A3BC816423493BE80045E623 /* Extension */,
 				A3BC81452349251C0045E623 /* AppDelegate.swift */,
 				A3BC81472349251C0045E623 /* SceneDelegate.swift */,
@@ -160,7 +243,10 @@
 		A3BC815B23492AEA0045E623 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				A3B08F3323494D6B002B491F /* ProximaPerguntaViewController.swift */,
+				A3B08F3323494D6B002B491F /* Home.swift */,
+				A37D04B82379A0CC00AD87E8 /* IniciarJogo.swift */,
+				A326D0ED237D729E008CB91E /* PerguntaViewController.swift */,
+				A3239ACD237AECA200925786 /* Views */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -260,10 +346,13 @@
 			files = (
 				A3BC816323493A990045E623 /* perguntas.txt in Resources */,
 				A3BC81522349251E0045E623 /* LaunchScreen.storyboard in Resources */,
+				A3569AB3238482A9009B1DF3 /* StatusTableViewCell.xib in Resources */,
 				A3A767A82355FCB00069AFA3 /* Pergunta.storyboard in Resources */,
+				A32523E223742B9B00B2087A /* Cadastro.storyboard in Resources */,
 				A3B1DBDF2355E936003049A1 /* GoogleService-Info.plist in Resources */,
 				A3BC814F2349251E0045E623 /* Assets.xcassets in Resources */,
 				A3BC814D2349251C0045E623 /* Main.storyboard in Resources */,
+				A3239AD2237AED8100925786 /* AlternativasTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -316,11 +405,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3231817237A462C00B05CDA /* StreamReader.swift in Sources */,
 				A3BC814A2349251C0045E623 /* InitViewController.swift in Sources */,
+				A326D0EE237D729E008CB91E /* PerguntaViewController.swift in Sources */,
+				A3239AD1237AED8100925786 /* AlternativasTableViewCell.swift in Sources */,
 				A3BC81462349251C0045E623 /* AppDelegate.swift in Sources */,
-				A3B08F3423494D6B002B491F /* ProximaPerguntaViewController.swift in Sources */,
+				A31EFD06237D668800A45176 /* HeaderTableView.swift in Sources */,
+				A3B08F3423494D6B002B491F /* Home.swift in Sources */,
+				A32523E423742BD300B2087A /* CadastroViewController.swift in Sources */,
 				A3DC40B5235DEC53009F19F3 /* ExtensionUITextField.swift in Sources */,
 				A3BC816723493C160045E623 /* ExtensionUIViewController.swift in Sources */,
+				A37D04B92379A0CC00AD87E8 /* IniciarJogo.swift in Sources */,
+				A3569AB2238482A9009B1DF3 /* StatusTableViewCell.swift in Sources */,
 				A30C9857235D0C5800A20323 /* LoginViewController.swift in Sources */,
 				A3BC816023492F060045E623 /* Jogador.swift in Sources */,
 				A3BC81482349251C0045E623 /* SceneDelegate.swift in Sources */,

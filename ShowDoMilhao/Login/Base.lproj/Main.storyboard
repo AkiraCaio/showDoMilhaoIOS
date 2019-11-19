@@ -14,10 +14,46 @@
                     <view key="view" contentMode="scaleToFill" id="m7d-xw-zFV">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Voce pode se conectar para guardas seus resultados" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p3Y-TE-Ozo">
+                                <rect key="frame" x="16" y="415" width="382" height="41"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O5i-fu-j65">
+                                <rect key="frame" x="16" y="488" width="382" height="30"/>
+                                <state key="normal" title="Login"/>
+                                <connections>
+                                    <action selector="loginAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Y06-aT-KWV"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="show_do_milhao" translatesAutoresizingMaskIntoConstraints="NO" id="DOv-hi-eAJ">
+                                <rect key="frame" x="87" y="172" width="240" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="lwn-Ba-7YN"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="fDs-ka-9jV" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="O5i-fu-j65" secondAttribute="bottom" constant="64" id="2u9-fA-Nvs"/>
+                            <constraint firstItem="DOv-hi-eAJ" firstAttribute="leading" secondItem="fDs-ka-9jV" secondAttribute="leading" constant="87" id="BmO-LP-QH1"/>
+                            <constraint firstItem="O5i-fu-j65" firstAttribute="trailing" secondItem="p3Y-TE-Ozo" secondAttribute="trailing" id="ENX-Gn-qf2"/>
+                            <constraint firstItem="O5i-fu-j65" firstAttribute="leading" secondItem="p3Y-TE-Ozo" secondAttribute="leading" id="KaK-zB-rAa"/>
+                            <constraint firstItem="p3Y-TE-Ozo" firstAttribute="top" secondItem="DOv-hi-eAJ" secondAttribute="bottom" constant="115" id="Nh9-Sw-Blo"/>
+                            <constraint firstItem="O5i-fu-j65" firstAttribute="top" secondItem="p3Y-TE-Ozo" secondAttribute="bottom" constant="32" id="Wda-0F-3r9"/>
+                            <constraint firstItem="p3Y-TE-Ozo" firstAttribute="leading" secondItem="fDs-ka-9jV" secondAttribute="leading" constant="16" id="YMp-s1-QUV"/>
+                            <constraint firstItem="DOv-hi-eAJ" firstAttribute="top" secondItem="fDs-ka-9jV" secondAttribute="top" constant="84" id="oe4-Ov-Lep"/>
+                            <constraint firstItem="fDs-ka-9jV" firstAttribute="trailing" secondItem="DOv-hi-eAJ" secondAttribute="trailing" constant="87" id="owN-Jm-WDt"/>
+                            <constraint firstItem="fDs-ka-9jV" firstAttribute="trailing" secondItem="p3Y-TE-Ozo" secondAttribute="trailing" constant="16" id="w6Z-WB-OdJ"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="fDs-ka-9jV"/>
                     </view>
                     <navigationItem key="navigationItem" id="tWQ-Rc-B7T"/>
+                    <connections>
+                        <outlet property="loginButton" destination="O5i-fu-j65" id="m6q-3p-RNL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -57,4 +93,7 @@
             <point key="canvasLocation" x="989.85507246376824" y="126.5625"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="show_do_milhao" width="646" height="284"/>
+    </resources>
 </document>
