@@ -46,6 +46,7 @@ class IniciarJogo: UIViewController {
         let controller = storyboard?.instantiateViewController(identifier: "PerguntaViewController") as! PerguntaViewController
         
         controller.pergunta = self.selecionarPergunta()
+
         
         self.navigationController?.pushViewController(controller, animated: true)
     }

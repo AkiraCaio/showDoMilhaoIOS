@@ -10,9 +10,12 @@ import UIKit
 
 class StatusTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var erroLabel: UILabel!
+    @IBOutlet weak var acertoLabel: UILabel!
+    @IBOutlet weak var pararLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
