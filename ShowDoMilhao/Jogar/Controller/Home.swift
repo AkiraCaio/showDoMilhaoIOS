@@ -16,15 +16,20 @@ class Home: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var buttonLogout: UIButton!
     
+    var ref: DatabaseReference!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.ref = Database.database().reference()
         self.configTela()
     }
     
     @IBAction func jogarAction(_ sender: Any) {
         
-        let controller = (storyboard?.instantiateViewController(identifier: "IniciarJogo"))!
+        let controller = (storyboard?.instantiateViewController(identifier: "IniciarJogo")) as! IniciarJogo
+        
+        controller.delegate = self
         
         self.navigationController?.pushViewController(controller, animated: true)
     }
@@ -57,6 +62,24 @@ class Home: UIViewController {
         self.buttonLogout.layer.cornerRadius = self.buttonLogout.frame.height / 2
         self.jogarButton.layer.cornerRadius = self.jogarButton.frame.height / 2
         self.rankingButton.layer.cornerRadius = self.rankingButton.frame.height / 2
+    }
+}
+
+extension Home: IniciarJogoDelegate {
+    func gravarPontuacao(pontuacao: Int) {
+        
+        let key = Auth.auth().currentUser!.uid
+        
+        ref.child("users").child(key).observeSingleEvent(of: .value, with: { (snapshot) in
+
+            let value = snapshot.value as? NSDictionary
+            let pontuacaoAtual = value?["pontos"] as? Int ?? 0
+                        
+            self.ref.child("users").child(key).child("pontos").setValue( pontuacao >  pontuacaoAtual ? pontuacao : pontuacaoAtual)
+                        
+        }) { (error) in
+            print(error.localizedDescription)
+        }
     }
     
 }

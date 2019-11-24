@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -137,41 +137,24 @@
                                     <action selector="chamarPerguntaAction:" destination="rvh-6D-LVe" eventType="touchUpInside" id="mm6-Hg-ula"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CkD-ja-OF8">
-                                <rect key="frame" x="32" y="550.5" width="350" height="45"/>
-                                <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="45" id="Rlw-Gv-EPW"/>
-                                </constraints>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="Parar"/>
-                                <connections>
-                                    <action selector="pararAction:" destination="rvh-6D-LVe" eventType="touchUpInside" id="P1p-tF-dHM"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="Ebf-Du-WSj" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="CkD-ja-OF8" secondAttribute="bottom" constant="32" id="Agg-ub-dYa"/>
                             <constraint firstItem="4yj-hB-QuZ" firstAttribute="leading" secondItem="Ebf-Du-WSj" secondAttribute="leading" constant="32" id="Fh0-FZ-c6W"/>
                             <constraint firstItem="yMd-tJ-Jet" firstAttribute="trailing" secondItem="4yj-hB-QuZ" secondAttribute="trailing" id="FkG-sy-ta1"/>
-                            <constraint firstItem="CkD-ja-OF8" firstAttribute="trailing" secondItem="Ljc-fR-8zo" secondAttribute="trailing" id="LZf-Jj-AaZ"/>
                             <constraint firstItem="yMd-tJ-Jet" firstAttribute="top" secondItem="4yj-hB-QuZ" secondAttribute="bottom" constant="64" id="ODm-L4-nJq"/>
-                            <constraint firstItem="CkD-ja-OF8" firstAttribute="top" secondItem="Ljc-fR-8zo" secondAttribute="bottom" constant="92" id="PBo-tw-avX"/>
                             <constraint firstItem="Ljc-fR-8zo" firstAttribute="top" secondItem="yMd-tJ-Jet" secondAttribute="bottom" constant="64" id="SXp-xh-Xsq"/>
                             <constraint firstItem="4yj-hB-QuZ" firstAttribute="top" secondItem="Ebf-Du-WSj" secondAttribute="top" constant="200" id="V6V-JX-h1A"/>
                             <constraint firstItem="Ljc-fR-8zo" firstAttribute="leading" secondItem="4yj-hB-QuZ" secondAttribute="leading" id="VVF-mi-JeT"/>
                             <constraint firstItem="yMd-tJ-Jet" firstAttribute="leading" secondItem="4yj-hB-QuZ" secondAttribute="leading" id="aHm-Mq-gV8"/>
                             <constraint firstItem="Ebf-Du-WSj" firstAttribute="trailing" secondItem="4yj-hB-QuZ" secondAttribute="trailing" constant="32" id="hep-pC-eEH"/>
                             <constraint firstItem="Ljc-fR-8zo" firstAttribute="trailing" secondItem="4yj-hB-QuZ" secondAttribute="trailing" id="mNZ-gZ-vAk"/>
-                            <constraint firstItem="CkD-ja-OF8" firstAttribute="leading" secondItem="Ljc-fR-8zo" secondAttribute="leading" id="mQv-qW-Oue"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Ebf-Du-WSj"/>
                     </view>
                     <connections>
                         <outlet property="chamarPerguntaButton" destination="Ljc-fR-8zo" id="d3h-vN-eqI"/>
                         <outlet property="labelValorDaPergunta" destination="yMd-tJ-Jet" id="awi-yw-Ktc"/>
-                        <outlet property="pararButton" destination="CkD-ja-OF8" id="h7L-X1-m8K"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cDN-gJ-cJC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

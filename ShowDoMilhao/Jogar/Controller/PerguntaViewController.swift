@@ -7,23 +7,26 @@
 //
 
 import UIKit
-import Firebase
+
+protocol PerguntaViewControllerDelegate {
+    func pararJogo()
+    func erroJogo()
+    func acertoJogo()
+}
 
 class PerguntaViewController: UIViewController {
     
-    var ref: DatabaseReference!
-    
+    var numeroPergunta: Int?
     var pergunta: Pergunta?
-    var numeroPergunta: Int = 10
     
     let cellSpacingHeight: CGFloat = 5
+    
+    var delegate: PerguntaViewControllerDelegate!
     
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.ref = Database.database().reference()
         
         self.setupTableView()
         self.setupNavigationItem()
@@ -42,7 +45,6 @@ class PerguntaViewController: UIViewController {
     }
     
     @objc func pararAction() {
-        print("funciona buceta")
         
         let alert = UIAlertController(title: "Voce deseja parar?", message: "Caso pare voce ira ganhar todo o dinheiro acumaldo ate o momento", preferredStyle: .actionSheet)
         
@@ -50,18 +52,7 @@ class PerguntaViewController: UIViewController {
         
         alert.addAction(UIAlertAction(title: "Parar", style: .destructive) { (_) in
             
-//            guard let key = self.ref.child("users").childByAutoId().key else { return }
-            let key = Auth.auth().currentUser!.uid
-            
-            let post = ["uid": Auth.auth().currentUser?.email ?? "-",
-                        "pontos": self.numeroPergunta] as [String : Any]
-            
-            let childUpdates = ["/users/\(key)": post]
-            
-            self.ref.updateChildValues(childUpdates)
-            
-            self.navigationController?.popViewController(animated: true)
-            
+            self.delegate.pararJogo()
         })
         
         self.present(alert, animated: true, completion: nil)
@@ -83,12 +74,8 @@ class PerguntaViewController: UIViewController {
         self.tableView.register(UINib(nibName: "AlternativasTableViewCell", bundle: nil), forCellReuseIdentifier: "AlternativasTableViewCell")
         self.tableView.register(UINib(nibName: "StatusTableViewCell", bundle: nil), forCellReuseIdentifier: "StatusTableViewCell")
         
-        
-        
         self.configHeaderTableView()
     }
-    
-    
     
     private func configHeaderTableView() {
         if let pergunta = self.pergunta {
@@ -100,6 +87,74 @@ class PerguntaViewController: UIViewController {
         }
     }
     
+    private func calcValorPerguntaErro(numero: Int) -> Int {
+        if ( numero != 16 ) {
+            return self.calcValorPerguntaParar(numero: numero) / 2
+        }else {
+            return 0
+        }
+    }
+    
+    private func calcValorPerguntaParar(numero: Int) -> Int {
+        
+        if (numero < 2){
+            return 0
+        }else if (numero < 7){
+            return numero
+        }else if (numero < 12){
+            return (numero - 6) * 10
+        }else{
+            return (numero - 11) * 100
+        }
+    }
+    
+    private func calcValorPerguntaAcerto(numero: Int) -> Int{
+        
+        if (numero < 1){
+            return 0
+        }else if (numero < 6){
+            return numero
+        }else if (numero < 11){
+            return (numero - 5) * 10
+        }else if (numero < 16){
+            return (numero - 10) * 100
+        }else{
+            return 1
+        }
+    }
+    
+    private func valorPerguntaAcerto(perguntaNumero: Int) -> String {
+        
+        let numero = self.calcValorPerguntaAcerto(numero: perguntaNumero)
+        
+        if (perguntaNumero == 16) {
+            return "\(numero) milhão "
+        }else {
+            return "\(numero) mil"
+        }
+    }
+    
+    private func valorPerguntaParar(perguntaNumero: Int) -> String {
+        
+        let numero = self.calcValorPerguntaParar(numero: perguntaNumero)
+        
+        if (perguntaNumero == 1) {
+            return "\(numero) "
+        }else {
+            return "\(numero) mil"
+        }
+    }
+    
+    private func valorPerguntaErro(perguntaNumero: Int) -> String {
+        
+        let numero = self.calcValorPerguntaErro(numero: perguntaNumero)
+        
+        if (perguntaNumero == 1 || perguntaNumero == 16  || perguntaNumero == 2) {
+            return "\(numero) "
+        }else {
+            return "\(numero) mil"
+        }
+    }
 }
 
 extension PerguntaViewController: UITableViewDataSource, UITableViewDelegate {
@@ -135,14 +190,27 @@ extension PerguntaViewController: UITableViewDataSource, UITableViewDelegate {
         }else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "StatusTableViewCell") as! StatusTableViewCell
             
+            if let perguntaAtual = self.numeroPergunta {
+                
+                cell.bind(acerto: self.valorPerguntaAcerto(perguntaNumero: perguntaAtual), parar: self.valorPerguntaParar(perguntaNumero: perguntaAtual), erro: self.valorPerguntaErro(perguntaNumero: perguntaAtual))
+            }
+            
             return cell
         }
         
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        if let perguntaAtual = self.pergunta {
+            
+            print(perguntaAtual.alternativas[indexPath.section])
+            
+            if ( (perguntaAtual.resposta - 1) == indexPath.section ) {
+                self.delegate.acertoJogo()
+            }else {
+                self.delegate.erroJogo()
+            }
+        }
     }
-    
     
 }

@@ -169,7 +169,7 @@ class CadastroViewController: UIViewController {
                 self.showToast(error: true, message: error.localizedDescription)
                 return
             }
-            
+            			
             if let authResult = authResult {
 
                 let dict: [String : Any] = [
