@@ -17,7 +17,7 @@ class Home: UIViewController {
     @IBOutlet weak var buttonLogout: UIButton!
     
     var ref: DatabaseReference!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -35,7 +35,7 @@ class Home: UIViewController {
     }
     
     @IBAction func rankingAction(_ sender: Any) {
-        	
+        
     }
     
     @IBAction func logoutAction(_ sender: Any) {
@@ -68,17 +68,19 @@ class Home: UIViewController {
 extension Home: IniciarJogoDelegate {
     func gravarPontuacao(pontuacao: Int) {
         
+        self.navigationController?.popViewController(animated: true)
+        
         let key = Auth.auth().currentUser!.uid
         
         ref.child("users").child(key).observeSingleEvent(of: .value, with: { (snapshot) in
-
+            
             let value = snapshot.value as? NSDictionary
             let pontuacaoAtual = value?["pontos"] as? Int ?? 0
-                        
+            
             self.ref.child("users").child(key).child("pontos").setValue( pontuacao >  pontuacaoAtual ? pontuacao : pontuacaoAtual)
-                        
+            
         }) { (error) in
-            print(error.localizedDescription)
+            self.showToast(error: true, message: error.localizedDescription)
         }
     }
     

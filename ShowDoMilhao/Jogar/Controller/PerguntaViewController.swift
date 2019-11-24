@@ -9,9 +9,9 @@
 import UIKit
 
 protocol PerguntaViewControllerDelegate {
-    func pararJogo()
-    func erroJogo()
-    func acertoJogo()
+    func pararJogo(valor: Int)
+    func erroJogo(valor: Int)
+    func acertoJogo(valor: Int)
 }
 
 class PerguntaViewController: UIViewController {
@@ -30,6 +30,8 @@ class PerguntaViewController: UIViewController {
         
         self.setupTableView()
         self.setupNavigationItem()
+        
+        self.printarReposta()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -52,10 +54,18 @@ class PerguntaViewController: UIViewController {
         
         alert.addAction(UIAlertAction(title: "Parar", style: .destructive) { (_) in
             
-            self.delegate.pararJogo()
+            if let numeroPergunta = self.numeroPergunta {
+                self.delegate.pararJogo(valor: self.calcValorPerguntaParar(numero: numeroPergunta))
+            }
         })
         
         self.present(alert, animated: true, completion: nil)
+    }
+    
+    private func printarReposta() {
+        if let pergunta = self.pergunta {
+            print(pergunta.resposta)
+        }
     }
     
     private func setupNavigationItem() {
@@ -88,7 +98,7 @@ class PerguntaViewController: UIViewController {
     }
     
     private func calcValorPerguntaErro(numero: Int) -> Int {
-        if ( numero != 16 ) {
+        if ( numero != 16) {
             return self.calcValorPerguntaParar(numero: numero) / 2
         }else {
             return 0
@@ -100,11 +110,11 @@ class PerguntaViewController: UIViewController {
         if (numero < 2){
             return 0
         }else if (numero < 7){
-            return numero
+            return (numero - 1) * 1000
         }else if (numero < 12){
-            return (numero - 6) * 10
+            return (numero - 6) * 10 * 1000
         }else{
-            return (numero - 11) * 100
+            return (numero - 11) * 100 * 1000
         }
     }
     
@@ -113,13 +123,13 @@ class PerguntaViewController: UIViewController {
         if (numero < 1){
             return 0
         }else if (numero < 6){
-            return numero
+            return numero * 1000
         }else if (numero < 11){
-            return (numero - 5) * 10
+            return (numero - 5) * 10 * 1000
         }else if (numero < 16){
-            return (numero - 10) * 100
+            return (numero - 10) * 100 * 1000
         }else{
-            return 1
+            return 1 * 1000 *  1000
         }
     }
     
@@ -127,33 +137,24 @@ class PerguntaViewController: UIViewController {
         
         let numero = self.calcValorPerguntaAcerto(numero: perguntaNumero)
         
-        if (perguntaNumero == 16) {
-            return "\(numero) milhão "
-        }else {
-            return "\(numero) mil"
-        }
+        return "\(numero)"
+        
     }
     
     private func valorPerguntaParar(perguntaNumero: Int) -> String {
         
         let numero = self.calcValorPerguntaParar(numero: perguntaNumero)
         
-        if (perguntaNumero == 1) {
-            return "\(numero) "
-        }else {
-            return "\(numero) mil"
-        }
+        return "\(numero) "
+        
     }
     
     private func valorPerguntaErro(perguntaNumero: Int) -> String {
         
         let numero = self.calcValorPerguntaErro(numero: perguntaNumero)
         
-        if (perguntaNumero == 1 || perguntaNumero == 16  || perguntaNumero == 2) {
-            return "\(numero) "
-        }else {
-            return "\(numero) mil"
-        }
+        return "\(numero) "
+        
     }
 }
 
@@ -201,15 +202,15 @@ extension PerguntaViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let perguntaAtual = self.pergunta {
+        if let perguntaAtual = self.pergunta, let numeroPergunta = self.numeroPergunta {
             
-            print(perguntaAtual.alternativas[indexPath.section])
             
             if ( (perguntaAtual.resposta - 1) == indexPath.section ) {
-                self.delegate.acertoJogo()
+                self.delegate.acertoJogo(valor: self.calcValorPerguntaAcerto(numero: numeroPergunta))
             }else {
-                self.delegate.erroJogo()
+//                self.delegate.erroJogo(valor: self.calcValorPerguntaErro(numero: numeroPergunta))
             }
+            
         }
     }
     

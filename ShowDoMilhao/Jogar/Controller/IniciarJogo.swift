@@ -42,6 +42,9 @@ class IniciarJogo: UIViewController {
         self.carregarPerguntas()
         self.setupScreen()
         
+        self.navigationItem.setHidesBackButton(true, animated: true)
+        self.navigationItem.title = "Proxima Pergunta"
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -57,13 +60,6 @@ class IniciarJogo: UIViewController {
         controller.delegate = self
         
         self.navigationController?.pushViewController(controller, animated: true)
-    }
-    
-    private func pararAction() {
-        
-        self.navigationController?.popViewController(animated: true)
-        
-        self.delegate.gravarPontuacao(pontuacao: calcValorPergunta(numero: self.numeroPergunta - 1))
     }
     
     private func setupScreen() {
@@ -85,13 +81,18 @@ class IniciarJogo: UIViewController {
     }
     
     private func selecionarPergunta() -> Pergunta {
-        let number = Int.random(in: 0 ... 5)
         
         if (self.numeroPergunta < 6){
+            let number = Int.random(in: 0 ... self.perguntasFaceis.count)
+
             return self.perguntasFaceis[number]
         }else if (self.numeroPergunta < 11) {
+            let number = Int.random(in: 0 ... self.perguntasMedias.count)
+
             return self.perguntasMedias[number]
         }else {
+            let number = Int.random(in: 0 ... self.perguntasDificies.count)
+
             return self.perguntasDificies[number]
         }
     }
@@ -113,20 +114,30 @@ class IniciarJogo: UIViewController {
 }
 
 extension IniciarJogo: PerguntaViewControllerDelegate {
-    func erroJogo() {
+    
+    
+    func erroJogo(valor: Int) {
+        self.navigationController?.popViewController(animated: true)
         
+        self.delegate.gravarPontuacao(pontuacao: valor)
     }
     
-    func acertoJogo() {
+    func acertoJogo(valor: Int) {
         self.numeroPergunta += 1
         
         self.navigationController?.popViewController(animated: true)
+        
+        if (self.numeroPergunta > 16 ) {
+            
+            self.delegate.gravarPontuacao(pontuacao: valor)
+        }
     }
     
-    func pararJogo() {
+    func pararJogo(valor: Int) {
         
         self.navigationController?.popViewController(animated: true)
         
-        self.pararAction()
+        self.delegate.gravarPontuacao(pontuacao: valor)
+        
     }
 }
