@@ -208,7 +208,7 @@ extension PerguntaViewController: UITableViewDataSource, UITableViewDelegate {
             if ( (perguntaAtual.resposta - 1) == indexPath.section ) {
                 self.delegate.acertoJogo(valor: self.calcValorPerguntaAcerto(numero: numeroPergunta))
             }else {
-//                self.delegate.erroJogo(valor: self.calcValorPerguntaErro(numero: numeroPergunta))
+                self.delegate.erroJogo(valor: self.calcValorPerguntaErro(numero: numeroPergunta))
             }
             
         }

@@ -16,6 +16,10 @@
 		A32523E223742B9B00B2087A /* Cadastro.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A32523E123742B9B00B2087A /* Cadastro.storyboard */; };
 		A32523E423742BD300B2087A /* CadastroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32523E323742BD300B2087A /* CadastroViewController.swift */; };
 		A326D0EE237D729E008CB91E /* PerguntaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A326D0ED237D729E008CB91E /* PerguntaViewController.swift */; };
+		A3298199238B325D00903697 /* Ranking.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A3298198238B325D00903697 /* Ranking.storyboard */; };
+		A329819F238B32D200903697 /* RankingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A329819E238B32D200903697 /* RankingViewController.swift */; };
+		A32981A5238B33F700903697 /* RankingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32981A3238B33F700903697 /* RankingTableViewCell.swift */; };
+		A32981A6238B33F700903697 /* RankingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A32981A4238B33F700903697 /* RankingTableViewCell.xib */; };
 		A3569AB2238482A9009B1DF3 /* StatusTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3569AB0238482A9009B1DF3 /* StatusTableViewCell.swift */; };
 		A3569AB3238482A9009B1DF3 /* StatusTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3569AB1238482A9009B1DF3 /* StatusTableViewCell.xib */; };
 		A37D04B92379A0CC00AD87E8 /* IniciarJogo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37D04B82379A0CC00AD87E8 /* IniciarJogo.swift */; };
@@ -46,6 +50,10 @@
 		A32523E123742B9B00B2087A /* Cadastro.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Cadastro.storyboard; sourceTree = "<group>"; };
 		A32523E323742BD300B2087A /* CadastroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadastroViewController.swift; sourceTree = "<group>"; };
 		A326D0ED237D729E008CB91E /* PerguntaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerguntaViewController.swift; sourceTree = "<group>"; };
+		A3298198238B325D00903697 /* Ranking.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Ranking.storyboard; sourceTree = "<group>"; };
+		A329819E238B32D200903697 /* RankingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingViewController.swift; sourceTree = "<group>"; };
+		A32981A3238B33F700903697 /* RankingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingTableViewCell.swift; sourceTree = "<group>"; };
+		A32981A4238B33F700903697 /* RankingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RankingTableViewCell.xib; sourceTree = "<group>"; };
 		A3569AB0238482A9009B1DF3 /* StatusTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusTableViewCell.swift; sourceTree = "<group>"; };
 		A3569AB1238482A9009B1DF3 /* StatusTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StatusTableViewCell.xib; sourceTree = "<group>"; };
 		A37D04B82379A0CC00AD87E8 /* IniciarJogo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IniciarJogo.swift; sourceTree = "<group>"; };
@@ -122,6 +130,41 @@
 				A32523E323742BD300B2087A /* CadastroViewController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		A3298196238B322800903697 /* Raking */ = {
+			isa = PBXGroup;
+			children = (
+				A3298198238B325D00903697 /* Ranking.storyboard */,
+				A329819A238B326800903697 /* Model */,
+				A3298197238B324C00903697 /* Controller */,
+			);
+			path = Raking;
+			sourceTree = "<group>";
+		};
+		A3298197238B324C00903697 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				A329819E238B32D200903697 /* RankingViewController.swift */,
+				A32981A2238B33E200903697 /* Cell */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		A329819A238B326800903697 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		A32981A2238B33E200903697 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				A32981A3238B33F700903697 /* RankingTableViewCell.swift */,
+				A32981A4238B33F700903697 /* RankingTableViewCell.xib */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		A3569AAE238481DC009B1DF3 /* AlternativasCell */ = {
@@ -213,6 +256,7 @@
 				A3B1DBDA2355E326003049A1 /* Login */,
 				A32523DF23742B5700B2087A /* Cadastro */,
 				A3B1DBDD2355E3B0003049A1 /* Jogar */,
+				A3298196238B322800903697 /* Raking */,
 				A37D04B7237995EA00AD87E8 /* Pergunta */,
 				A3BC81532349251E0045E623 /* Info.plist */,
 				A3B1DBDE2355E936003049A1 /* GoogleService-Info.plist */,
@@ -344,6 +388,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A32981A6238B33F700903697 /* RankingTableViewCell.xib in Resources */,
 				A3BC816323493A990045E623 /* perguntas.txt in Resources */,
 				A3BC81522349251E0045E623 /* LaunchScreen.storyboard in Resources */,
 				A3569AB3238482A9009B1DF3 /* StatusTableViewCell.xib in Resources */,
@@ -353,6 +398,7 @@
 				A3BC814F2349251E0045E623 /* Assets.xcassets in Resources */,
 				A3BC814D2349251C0045E623 /* Main.storyboard in Resources */,
 				A3239AD2237AED8100925786 /* AlternativasTableViewCell.xib in Resources */,
+				A3298199238B325D00903697 /* Ranking.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -407,6 +453,7 @@
 			files = (
 				A3231817237A462C00B05CDA /* StreamReader.swift in Sources */,
 				A3BC814A2349251C0045E623 /* InitViewController.swift in Sources */,
+				A32981A5238B33F700903697 /* RankingTableViewCell.swift in Sources */,
 				A326D0EE237D729E008CB91E /* PerguntaViewController.swift in Sources */,
 				A3239AD1237AED8100925786 /* AlternativasTableViewCell.swift in Sources */,
 				A3BC81462349251C0045E623 /* AppDelegate.swift in Sources */,
@@ -415,6 +462,7 @@
 				A32523E423742BD300B2087A /* CadastroViewController.swift in Sources */,
 				A3DC40B5235DEC53009F19F3 /* ExtensionUITextField.swift in Sources */,
 				A3BC816723493C160045E623 /* ExtensionUIViewController.swift in Sources */,
+				A329819F238B32D200903697 /* RankingViewController.swift in Sources */,
 				A37D04B92379A0CC00AD87E8 /* IniciarJogo.swift in Sources */,
 				A3569AB2238482A9009B1DF3 /* StatusTableViewCell.swift in Sources */,
 				A30C9857235D0C5800A20323 /* LoginViewController.swift in Sources */,

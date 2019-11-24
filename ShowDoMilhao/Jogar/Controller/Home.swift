@@ -36,6 +36,11 @@ class Home: UIViewController {
     
     @IBAction func rankingAction(_ sender: Any) {
         
+        let storyboard = UIStoryboard(name: "Ranking", bundle: nil)
+        
+        let controller = (storyboard.instantiateViewController(identifier: "RankingViewController")) as! RankingViewController
+        
+        self.navigationController?.pushViewController(controller, animated: true)
     }
     
     @IBAction func logoutAction(_ sender: Any) {
