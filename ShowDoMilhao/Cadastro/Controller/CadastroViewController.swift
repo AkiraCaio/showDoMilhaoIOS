@@ -174,7 +174,7 @@ class CadastroViewController: UIViewController {
 
                 let dict: [String : Any] = [
                     "email" : self.emailTextField.text!,
-                    "pontos" : "0",
+                    "pontos" : 0,
                     "username" : self.userName.text ?? "-"
                 ]
                 

@@ -36,6 +36,7 @@ class RankingViewController: UIViewController {
         ref.child("users").queryOrdered(byChild: "pontos").observe(.childAdded) { (snapshot) in
 
             let jogador = (snapshot.value as! [String: Any])
+           
             self.ranking.append(
                 Jogador(nome: jogador["username"] as! String, pontuacao: jogador["pontos"] as! Int)
             )
