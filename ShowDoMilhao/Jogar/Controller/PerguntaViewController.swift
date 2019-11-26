@@ -21,6 +21,8 @@ class PerguntaViewController: UIViewController {
     var pergunta: Pergunta?
     var audioPlayer = AVAudioPlayer()
     
+    var isPossibleClickTableView: Bool = true
+    
     let cellSpacingHeight: CGFloat = 5
     
     var delegate: PerguntaViewControllerDelegate!
@@ -259,9 +261,14 @@ extension PerguntaViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let perguntaAtual = self.pergunta, let numeroPergunta = self.numeroPergunta {
+        
+        
+        
+        if let perguntaAtual = self.pergunta, let numeroPergunta = self.numeroPergunta, isPossibleClickTableView, indexPath.section != 4 {
             
-            print("apertou na resposta \(indexPath.section)")
+            self.isPossibleClickTableView = false
+            
+            print("apertou na resposta \(indexPath.section + 1)")
             
             self.audioPlayer.pause()
 
