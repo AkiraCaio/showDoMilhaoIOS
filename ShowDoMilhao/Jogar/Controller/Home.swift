@@ -9,6 +9,11 @@
 import UIKit
 import Firebase
 
+protocol homeDelegate {
+    func pausarMusicaTema()
+    func playMusicaTema()
+}
+
 class Home: UIViewController {
     
     @IBOutlet weak var rankingButton: UIButton!
@@ -18,6 +23,8 @@ class Home: UIViewController {
     
     var ref: DatabaseReference!
     
+    var delegate: homeDelegate!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -25,10 +32,12 @@ class Home: UIViewController {
         self.configTela()
     }
     
+    
     @IBAction func jogarAction(_ sender: Any) {
         
         let controller = (storyboard?.instantiateViewController(identifier: "IniciarJogo")) as! IniciarJogo
         
+        self.delegate.pausarMusicaTema()
         controller.delegate = self
         
         self.navigationController?.pushViewController(controller, animated: true)
@@ -53,6 +62,8 @@ class Home: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        self.delegate.playMusicaTema()
+        
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     
@@ -71,6 +82,8 @@ class Home: UIViewController {
 }
 
 extension Home: IniciarJogoDelegate {
+
+    
     func gravarPontuacao(pontuacao: Int) {
         
         self.navigationController?.popViewController(animated: true)

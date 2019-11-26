@@ -35,7 +35,7 @@ class RankingViewController: UIViewController {
     private func buscarPessoasRanking() {
         ref.child("users").queryOrdered(byChild: "pontos").observe(.childAdded) { (snapshot) in
 
-            var jogador = (snapshot.value as! [String: Any])
+            let jogador = (snapshot.value as! [String: Any])
             self.ranking.append(
                 Jogador(nome: jogador["username"] as! String, pontuacao: jogador["pontos"] as! Int)
             )

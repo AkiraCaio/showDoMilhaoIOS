@@ -8,11 +8,14 @@
 
 import UIKit
 import Firebase
-
+import SVProgressHUD
+import AVFoundation
 
 class InitViewController: UIViewController {
     
     var handle: AuthStateDidChangeListenerHandle?
+    
+    var audioPlayer = AVAudioPlayer()
     
     @IBOutlet weak var loginButton: UIButton!
     
@@ -29,6 +32,8 @@ class InitViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.chamarMusicaTema()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -63,16 +68,28 @@ class InitViewController: UIViewController {
         self.present(controller, animated: true)
     }
     
+    private func chamarMusicaTema() {
+        do {
+            self.audioPlayer = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: "trilhaSonora", ofType: "mp3")!))
+            self.audioPlayer.prepareToPlay()
+            self.audioPlayer.play()
+            self.audioPlayer.numberOfLoops = -1
+        } catch  {
+            self.showToast(error: true, message: error.localizedDescription)
+        }
+    }
+    
     private func chamarTelaHome() {
         let storyboard = UIStoryboard(name: "Pergunta", bundle: nil)
         
         let controller = storyboard.instantiateViewController(withIdentifier: "Home") as! Home
+        controller.delegate = self
         
         self.navigationController?.pushViewController(controller, animated: true)
     }
     
     private func instanciaLogin() -> UIViewController {
-        return (storyboard?.instantiateViewController(withIdentifier: "LoginViewController"))!
+            return (storyboard?.instantiateViewController(withIdentifier: "LoginViewController"))!
     }
     
     private func instanciaCadastro() -> UIViewController {
@@ -114,4 +131,16 @@ extension InitViewController: CadastroViewControllerDelegate {
         self.present(controller, animated: true)
         
     }
+}
+
+extension InitViewController: homeDelegate {
+    func pausarMusicaTema() {
+        self.audioPlayer.pause()
+    }
+    
+    func playMusicaTema() {
+        self.audioPlayer.play()
+    }
+    
+    
 }

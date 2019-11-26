@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 protocol PerguntaViewControllerDelegate {
     func pararJogo(valor: Int)
@@ -18,6 +19,7 @@ class PerguntaViewController: UIViewController {
     
     var numeroPergunta: Int?
     var pergunta: Pergunta?
+    var audioPlayer = AVAudioPlayer()
     
     let cellSpacingHeight: CGFloat = 5
     
@@ -32,6 +34,8 @@ class PerguntaViewController: UIViewController {
         self.setupNavigationItem()
         
         self.printarReposta()
+        self.tocarSomPerguntaTema()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -55,11 +59,64 @@ class PerguntaViewController: UIViewController {
         alert.addAction(UIAlertAction(title: "Parar", style: .destructive) { (_) in
             
             if let numeroPergunta = self.numeroPergunta {
-                self.delegate.pararJogo(valor: self.calcValorPerguntaParar(numero: numeroPergunta))
+                
+                self.tocarSomParar()
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                    self.delegate.pararJogo(valor: self.calcValorPerguntaParar(numero: numeroPergunta))
+                }
             }
         })
         
         self.present(alert, animated: true, completion: nil)
+    }
+    
+    private func tocarSomParar() {
+        do {
+            self.audioPlayer = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: "Ok parou", ofType: "mp3")!))
+            self.audioPlayer.prepareToPlay()
+            self.audioPlayer.play()
+            self.audioPlayer.numberOfLoops = 0
+            
+        } catch  {
+            self.showToast(error: true, message: error.localizedDescription)
+        }
+    }
+    
+    private func tocarSomCertaResposta() {
+        do {
+            self.audioPlayer = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: "Certa Resposta", ofType: "mp3")!))
+            self.audioPlayer.prepareToPlay()
+            self.audioPlayer.play()
+            self.audioPlayer.numberOfLoops = 0
+            
+        } catch  {
+            self.showToast(error: true, message: error.localizedDescription)
+        }
+    }
+    
+    private func tocarSomErrouResposta() {
+        do {
+            self.audioPlayer = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: "que pena_ voce errou", ofType: "mp3")!))
+            self.audioPlayer.prepareToPlay()
+            self.audioPlayer.play()
+            self.audioPlayer.numberOfLoops = 0
+            
+        } catch  {
+            self.showToast(error: true, message: error.localizedDescription)
+        }
+    }
+    
+    private func tocarSomPerguntaTema() {
+        do {
+            self.audioPlayer = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: "Pergunta_Som", ofType: "mp3")!))
+            self.audioPlayer.prepareToPlay()
+            self.audioPlayer.play()
+            self.audioPlayer.numberOfLoops = -1
+            
+        } catch  {
+            self.showToast(error: true, message: error.localizedDescription)
+        }
     }
     
     private func printarReposta() {
@@ -179,7 +236,7 @@ extension PerguntaViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
+            
         if indexPath.section < 4 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "AlternativasTableViewCell") as! AlternativasTableViewCell
             
@@ -204,11 +261,23 @@ extension PerguntaViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let perguntaAtual = self.pergunta, let numeroPergunta = self.numeroPergunta {
             
+            print("apertou na resposta \(indexPath.section)")
             
+            self.audioPlayer.pause()
+
             if ( (perguntaAtual.resposta - 1) == indexPath.section ) {
-                self.delegate.acertoJogo(valor: self.calcValorPerguntaAcerto(numero: numeroPergunta))
+                self.tocarSomCertaResposta()
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                    self.delegate.acertoJogo(valor: self.calcValorPerguntaAcerto(numero: numeroPergunta))
+                }
+                
             }else {
-                self.delegate.erroJogo(valor: self.calcValorPerguntaErro(numero: numeroPergunta))
+                self.tocarSomErrouResposta()
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                    self.delegate.erroJogo(valor: self.calcValorPerguntaErro(numero: numeroPergunta))
+                }
             }
             
         }
