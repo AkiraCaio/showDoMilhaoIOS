@@ -8,7 +8,6 @@
 
 import UIKit
 import Firebase
-import SVProgressHUD
 import AVFoundation
 
 class InitViewController: UIViewController {
@@ -39,28 +38,43 @@ class InitViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        handle = Auth.auth().addStateDidChangeListener({ (auth, user) in
-            
-            if let user = user {
-                // If user is auth
-                //                try? Auth.auth().signOut() //TODO: Fica deslogando para testar algumas config no firabase, retirar
-                //                if (user.isEmailVerified) { //TODO: FAZER A VERIFICAO DO EMAIL
-                //
-                //                    //TODO: Mandar para a tela de inicio de jogo
-                //                }else{
-                //                    //TODO: Criar uma tela para esperar validar o email
-                //                }
-                
-                self.chamarTelaHome()
-                
+        
+        if let user = Auth.auth().currentUser {
+            user.reload { (_) in
+                self.handle = Auth.auth().addStateDidChangeListener({ (auth, user) in
+                    //            try? auth.signOut()
+                    
+                    if let user = user {
+                        
+                        // If user is auth
+                        if (user.isEmailVerified) {
+                            self.chamarTelaHome()
+                        }else {
+                            self.chamarTelaVerificarEmail()
+                            
+                        }
+                    }
+                })
             }
-        })
+        }
+        
     }
     
     @IBAction func loginAction(_ sender: Any) {
         let controller = self.instanciaLogin() as! LoginViewController
         
         controller.delegate = self
+        
+        controller.modalPresentationStyle = .fullScreen
+        controller.modalTransitionStyle = .coverVertical
+        
+        self.present(controller, animated: true)
+    }
+    
+    private func chamarTelaVerificarEmail() {
+        let storyboard = UIStoryboard(name: "Cadastro", bundle: nil)
+        
+        let controller = storyboard.instantiateViewController(withIdentifier: "ConfirmarEmailViewController")
         
         controller.modalPresentationStyle = .fullScreen
         controller.modalTransitionStyle = .coverVertical
@@ -89,7 +103,7 @@ class InitViewController: UIViewController {
     }
     
     private func instanciaLogin() -> UIViewController {
-            return (storyboard?.instantiateViewController(withIdentifier: "LoginViewController"))!
+        return (storyboard?.instantiateViewController(withIdentifier: "LoginViewController"))!
     }
     
     private func instanciaCadastro() -> UIViewController {
@@ -117,6 +131,7 @@ extension InitViewController: LoginViewControllerDelegate {
 }
 
 extension InitViewController: CadastroViewControllerDelegate {
+    
     func chamarTelaLoginDoCadastro() {
         
         self.dismiss(animated: true)

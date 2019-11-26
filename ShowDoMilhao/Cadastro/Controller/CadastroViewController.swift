@@ -180,7 +180,15 @@ class CadastroViewController: UIViewController {
                 
                 self.ref.child("users").child(authResult.user.uid).setValue(dict)
                 
-                self.dismiss(animated: true)
+                Auth.auth().currentUser?.sendEmailVerification(completion: { (erro) in
+                    if let erro = error {
+                        self.showToast(error: true, message: erro.localizedDescription)
+                    }else {
+                        
+                        self.dismiss(animated: true)
+                    }
+                })
+                
             }
         }
     }

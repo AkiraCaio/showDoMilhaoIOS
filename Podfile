@@ -1,4 +1,4 @@
-platform :ios, '9.0'
+	platform :ios, '9.0'
 
 target 'ShowDoMilhao' do
   use_frameworks!
@@ -7,6 +7,6 @@ target 'ShowDoMilhao' do
   pod 'Firebase/Analytics'
   pod 'Firebase/Auth'
   pod 'Firebase/Database'
-  pod 'SVProgressHUD'
+  pod 'JGProgressHUD'
 
 end

@@ -37,6 +37,7 @@
 		A3289822238CC41C00CE0723 /* Certa Resposta.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A3289821238CC41C00CE0723 /* Certa Resposta.mp3 */; };
 		A3289824238CC43200CE0723 /* que pena_ voce errou.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A3289823238CC43200CE0723 /* que pena_ voce errou.mp3 */; };
 		A3289826238CCDF900CE0723 /* Ok parou.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A3289825238CCDF900CE0723 /* Ok parou.mp3 */; };
+		A3289828238CD76200CE0723 /* ConfirmarEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3289827238CD76200CE0723 /* ConfirmarEmailViewController.swift */; };
 		A3298199238B325D00903697 /* Ranking.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A3298198238B325D00903697 /* Ranking.storyboard */; };
 		A329819F238B32D200903697 /* RankingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A329819E238B32D200903697 /* RankingViewController.swift */; };
 		A32981A5238B33F700903697 /* RankingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32981A3238B33F700903697 /* RankingTableViewCell.swift */; };
@@ -92,6 +93,7 @@
 		A3289821238CC41C00CE0723 /* Certa Resposta.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Certa Resposta.mp3"; sourceTree = "<group>"; };
 		A3289823238CC43200CE0723 /* que pena_ voce errou.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "que pena_ voce errou.mp3"; sourceTree = "<group>"; };
 		A3289825238CCDF900CE0723 /* Ok parou.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Ok parou.mp3"; sourceTree = "<group>"; };
+		A3289827238CD76200CE0723 /* ConfirmarEmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmarEmailViewController.swift; sourceTree = "<group>"; };
 		A3298198238B325D00903697 /* Ranking.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Ranking.storyboard; sourceTree = "<group>"; };
 		A329819E238B32D200903697 /* RankingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingViewController.swift; sourceTree = "<group>"; };
 		A32981A3238B33F700903697 /* RankingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingTableViewCell.swift; sourceTree = "<group>"; };
@@ -170,6 +172,7 @@
 			isa = PBXGroup;
 			children = (
 				A32523E323742BD300B2087A /* CadastroViewController.swift */,
+				A3289827238CD76200CE0723 /* ConfirmarEmailViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -548,6 +551,7 @@
 				A3BC816723493C160045E623 /* ExtensionUIViewController.swift in Sources */,
 				A329819F238B32D200903697 /* RankingViewController.swift in Sources */,
 				A37D04B92379A0CC00AD87E8 /* IniciarJogo.swift in Sources */,
+				A3289828238CD76200CE0723 /* ConfirmarEmailViewController.swift in Sources */,
 				A3569AB2238482A9009B1DF3 /* StatusTableViewCell.swift in Sources */,
 				A30C9857235D0C5800A20323 /* LoginViewController.swift in Sources */,
 				A3BC816023492F060045E623 /* Jogador.swift in Sources */,

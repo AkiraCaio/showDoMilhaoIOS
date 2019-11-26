@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -21,6 +21,57 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f0u-1X-56d" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="7" y="79"/>
+        </scene>
+        <!--Confirmar Email View Controller-->
+        <scene sceneID="1Wt-K0-0vb">
+            <objects>
+                <viewController storyboardIdentifier="ConfirmarEmailViewController" id="zCu-b3-3Ca" customClass="ConfirmarEmailViewController" customModule="ShowDoMilhao" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="IDr-rK-Xqw">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Verifique seu email" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qaw-0z-8U2">
+                                <rect key="frame" x="16" y="76" width="382" height="26.5"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Verifique seu email, caso nao o encontre procure na lixeira." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R9P-g3-fzL">
+                                <rect key="frame" x="16" y="189" width="382" height="43"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UXq-1h-jBa">
+                                <rect key="frame" x="16" y="296" width="382" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="8w4-9B-9gc"/>
+                                </constraints>
+                                <state key="normal" title="Enviar email novamente"/>
+                                <connections>
+                                    <action selector="sendEmail:" destination="zCu-b3-3Ca" eventType="touchUpInside" id="KKF-59-Fiv"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="qaw-0z-8U2" firstAttribute="leading" secondItem="eQ2-t0-tkj" secondAttribute="leading" constant="16" id="EZY-yL-4n7"/>
+                            <constraint firstItem="UXq-1h-jBa" firstAttribute="leading" secondItem="eQ2-t0-tkj" secondAttribute="leading" constant="16" id="GXk-yE-bMY"/>
+                            <constraint firstItem="R9P-g3-fzL" firstAttribute="leading" secondItem="qaw-0z-8U2" secondAttribute="leading" id="KhG-0j-ivZ"/>
+                            <constraint firstItem="qaw-0z-8U2" firstAttribute="top" secondItem="eQ2-t0-tkj" secondAttribute="top" constant="32" id="NbZ-Vv-VcQ"/>
+                            <constraint firstItem="eQ2-t0-tkj" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="UXq-1h-jBa" secondAttribute="bottom" constant="32" id="PhQ-N9-E8l"/>
+                            <constraint firstItem="R9P-g3-fzL" firstAttribute="trailing" secondItem="qaw-0z-8U2" secondAttribute="trailing" id="Sxf-RQ-ES5"/>
+                            <constraint firstItem="UXq-1h-jBa" firstAttribute="top" secondItem="R9P-g3-fzL" secondAttribute="bottom" constant="64" id="fNO-2G-HYz"/>
+                            <constraint firstItem="R9P-g3-fzL" firstAttribute="top" secondItem="qaw-0z-8U2" secondAttribute="bottom" constant="86.5" id="mh1-46-VfS"/>
+                            <constraint firstItem="eQ2-t0-tkj" firstAttribute="trailing" secondItem="qaw-0z-8U2" secondAttribute="trailing" constant="16" id="ojc-5n-Z3L"/>
+                            <constraint firstItem="eQ2-t0-tkj" firstAttribute="trailing" secondItem="UXq-1h-jBa" secondAttribute="trailing" constant="16" id="xnJ-Ly-t2W"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="eQ2-t0-tkj"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Tad-ph-d6D" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="853.62318840579712" y="77.678571428571431"/>
         </scene>
     </scenes>
 </document>
