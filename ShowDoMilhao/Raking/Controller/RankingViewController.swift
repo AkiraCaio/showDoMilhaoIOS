@@ -56,7 +56,7 @@ extension RankingViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "RankingTableViewCell") as! RankingTableViewCell
         
-        let jogador: Jogador = self.ranking[indexPath.row]
+        let jogador: Jogador = self.ranking[ self.ranking.count - (indexPath.row + 1)]
 
         cell.bind(nome: jogador.nome, pontos: jogador.pontuacao)
         
