@@ -76,10 +76,8 @@ class InitViewController: UIViewController {
         
         let controller = storyboard.instantiateViewController(withIdentifier: "ConfirmarEmailViewController")
         
-        controller.modalPresentationStyle = .fullScreen
-        controller.modalTransitionStyle = .coverVertical
-        
-        self.present(controller, animated: true)
+        self.navigationController?.pushViewController(controller, animated: true)
+//        self.present(controller, animated: true)
     }
     
     private func chamarMusicaTema() {

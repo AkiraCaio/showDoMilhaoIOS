@@ -12,8 +12,6 @@ import JGProgressHUD
 
 protocol IniciarJogoDelegate {
     func gravarPontuacao(pontuacao: Int)
-
-    func fetchPerguntas()
 }
 
 class IniciarJogo: UIViewController {
@@ -40,9 +38,9 @@ class IniciarJogo: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.delegate.fetchPerguntas()
-        
         self.setupScreen()
+        
+        self.carregarPerguntas()
         
         self.navigationItem.setHidesBackButton(true, animated: true)
         self.navigationItem.title = "Proxima Pergunta"
@@ -68,11 +66,6 @@ class IniciarJogo: UIViewController {
         controller.delegate = self
         
         self.navigationController?.pushViewController(controller, animated: true)
-    }
-    
-    func onPerguntasCarregadas(questoes: [Pergunta]) {
-        self.perguntas = questoes
-        self.carregarPerguntas()
     }
     
     private func tocarSom() {

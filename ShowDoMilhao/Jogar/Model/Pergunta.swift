@@ -33,7 +33,7 @@ class Pergunta {
     }
 }
 
-enum Dificuldade {
+enum Dificuldade: String {
     case FACIL
     case MEDIO
     case DIFICIL

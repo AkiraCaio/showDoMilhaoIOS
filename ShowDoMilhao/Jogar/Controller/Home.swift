@@ -35,13 +35,42 @@ class Home: UIViewController {
     
     
     @IBAction func jogarAction(_ sender: Any) {
+            
+        let hud = JGProgressHUD(style: .dark)
+        hud.textLabel.text = "Carregando Perguntas..."
+        hud.show(in: self.view)
         
-        let controller = (storyboard?.instantiateViewController(identifier: "IniciarJogo")) as! IniciarJogo
+        var perguntas: [Pergunta] = []
+
+        ref.child("questoes").observeSingleEvent(of: .value, with: { (snapshot) in
+                        
+            for perguntaChildren in snapshot.children {
+                
+                let perguntaData = perguntaChildren as! DataSnapshot
+                let pergunta = perguntaData.value as! [String: Any]
+                
+                
+                perguntas.append(
+                    Pergunta(id: pergunta["id"] as! Int, titulo: pergunta["pergunta"] as! String, alternativas: pergunta["opcoes"] as! [String], resposta: pergunta["resposta"] as! Int, dificuldade: Dificuldade(rawValue: pergunta["dificuldade"] as! String ) ?? Dificuldade.FACIL)
+                    //                Pergunta(nome: jogador["username"] as! String, pontuacao: jogador["pontos"] as! Int)
+                )
+            }
+            
+            hud.dismiss()
+            
+            let controller = (self.storyboard?.instantiateViewController(identifier: "IniciarJogo")) as! IniciarJogo
+            
+            controller.perguntas = perguntas
+            
+            self.delegate.pausarMusicaTema()
+            controller.delegate = self
+            
+            self.navigationController?.pushViewController(controller, animated: true)
+            
+        })
         
-        self.delegate.pausarMusicaTema()
-        controller.delegate = self
         
-        self.navigationController?.pushViewController(controller, animated: true)
+        
     }
     
     @IBAction func rankingAction(_ sender: Any) {
@@ -83,7 +112,7 @@ class Home: UIViewController {
 }
 
 extension Home: IniciarJogoDelegate {
-
+    
     
     func gravarPontuacao(pontuacao: Int) {
         
@@ -103,41 +132,4 @@ extension Home: IniciarJogoDelegate {
         }
     }
     
-    func fetchPerguntas() {
-        let hud = JGProgressHUD(style: .dark)
-        hud.textLabel.text = "Carregando"
-        hud.show(in: self.view)
-        
-        ref.child("questoes").observeSingleEvent(of: .value, with: { (snapshot) in
-            let questoes = snapshot.children
-            var perguntas: [Pergunta] = []
-            
-            questoes.forEach({ (questao) in
-                let questao = snapshot.value as? NSDictionary
-                
-                let pergunta = Pergunta(id: 0)
-                pergunta.id = questao?["id"] as? Int ?? 0
-                pergunta.titulo = questao?["pergunta"] as? String ?? ""
-                pergunta.resposta = questao?["resposta"] as? Int ?? -1
-                pergunta.alternativas = questao?["opcoes"] as? [String] ?? []
-                
-                switch(questao?["dificuldade"] as? String ?? "") {
-                case "FACIL":
-                    pergunta.dificuldade = Dificuldade.FACIL
-                case "MEDIO":
-                    pergunta.dificuldade = Dificuldade.MEDIO
-                case "DIFICIL":
-                    pergunta.dificuldade = Dificuldade.DIFICIL
-                default:
-                    pergunta.dificuldade = Dificuldade.FACIL
-                }
-                
-                perguntas.append(pergunta)
-            })
-            hud.dismiss()
-            
-            let controller = (self.storyboard?.instantiateViewController(identifier: "IniciarJogo")) as! IniciarJogo
-            controller.onPerguntasCarregadas(questoes: perguntas)
-        })
-    }
 }

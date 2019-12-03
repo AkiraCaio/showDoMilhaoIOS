@@ -11,11 +11,13 @@ import Firebase
 import JGProgressHUD
 
 class ConfirmarEmailViewController: UIViewController {
-    
+      
     var handle: AuthStateDidChangeListenerHandle?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.setupNavigationItem()
         
         if let user = Auth.auth().currentUser {
             user.reload { (_) in
@@ -28,6 +30,19 @@ class ConfirmarEmailViewController: UIViewController {
         Auth.auth().currentUser?.sendEmailVerification(completion: { (_) in
             self.verificarEmail()
         })
+    }
+    
+    private func setupNavigationItem() {
+           self.navigationItem.hidesBackButton = true
+           
+        self.navigationItem.setLeftBarButton(UIBarButtonItem(title: "Back", style: .done, target: self, action: #selector(ConfirmarEmailViewController.deslogar)), animated: true)
+    }
+    
+    @objc private func deslogar() {
+        
+        try? Auth.auth().signOut()
+        
+        self.navigationController?.popViewController(animated: true)
     }
     
     private func verificaSeEmailFoiVerificado() {
@@ -50,7 +65,7 @@ class ConfirmarEmailViewController: UIViewController {
                 user.reload { (_) in
                     
                     if (user.isEmailVerified) {
-                        self.dismiss(animated: true)
+                        self.navigationController?.popViewController(animated: true)
                     }else {
                         let hud = JGProgressHUD(style: .dark)
                         hud.textLabel.text = "Confirme o seu email"
@@ -65,4 +80,5 @@ class ConfirmarEmailViewController: UIViewController {
         })
         
     }
+   
 }

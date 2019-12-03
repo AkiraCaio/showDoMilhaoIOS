@@ -268,11 +268,11 @@ extension PerguntaViewController: UITableViewDataSource, UITableViewDelegate {
             
             self.isPossibleClickTableView = false
             
-            print("apertou na resposta \(indexPath.section + 1)")
+            print("apertou na resposta \(indexPath.section)")
             
             self.audioPlayer.pause()
 
-            if ( (perguntaAtual.resposta - 1) == indexPath.section ) {
+            if ( (perguntaAtual.resposta) == indexPath.section ) {
                 self.tocarSomCertaResposta()
                 
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
