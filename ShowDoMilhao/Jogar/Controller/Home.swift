@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import JGProgressHUD
 
 protocol homeDelegate {
     func pausarMusicaTema()
@@ -102,4 +103,41 @@ extension Home: IniciarJogoDelegate {
         }
     }
     
+    func fetchPerguntas() {
+        let hud = JGProgressHUD(style: .dark)
+        hud.textLabel.text = "Carregando"
+        hud.show(in: self.view)
+        
+        ref.child("questoes").observeSingleEvent(of: .value, with: { (snapshot) in
+            let questoes = snapshot.children
+            var perguntas: [Pergunta] = []
+            
+            questoes.forEach({ (questao) in
+                let questao = snapshot.value as? NSDictionary
+                
+                let pergunta = Pergunta(id: 0)
+                pergunta.id = questao?["id"] as? Int ?? 0
+                pergunta.titulo = questao?["pergunta"] as? String ?? ""
+                pergunta.resposta = questao?["resposta"] as? Int ?? -1
+                pergunta.alternativas = questao?["opcoes"] as? [String] ?? []
+                
+                switch(questao?["dificuldade"] as? String ?? "") {
+                case "FACIL":
+                    pergunta.dificuldade = Dificuldade.FACIL
+                case "MEDIO":
+                    pergunta.dificuldade = Dificuldade.MEDIO
+                case "DIFICIL":
+                    pergunta.dificuldade = Dificuldade.DIFICIL
+                default:
+                    pergunta.dificuldade = Dificuldade.FACIL
+                }
+                
+                perguntas.append(pergunta)
+            })
+            hud.dismiss()
+            
+            let controller = (self.storyboard?.instantiateViewController(identifier: "IniciarJogo")) as! IniciarJogo
+            controller.onPerguntasCarregadas(questoes: perguntas)
+        })
+    }
 }

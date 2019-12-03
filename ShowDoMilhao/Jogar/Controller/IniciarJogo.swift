@@ -8,9 +8,12 @@
 
 import UIKit
 import AVFoundation
+import JGProgressHUD
 
 protocol IniciarJogoDelegate {
     func gravarPontuacao(pontuacao: Int)
+
+    func fetchPerguntas()
 }
 
 class IniciarJogo: UIViewController {
@@ -26,12 +29,7 @@ class IniciarJogo: UIViewController {
     //Enquanto menor que 6 apenas perguntas faceis, se maior que 6 comeca perguntas medias, se maior que 12 comeca perguntas dificeis.
     var numeroPergunta: Int = 1
     
-    let perguntas: [Pergunta] = {
-        var perguntas: [Pergunta] = []
-        perguntas = StreamReader.readFile()
-        
-        return perguntas
-    }()
+    var perguntas: [Pergunta] = []
     
     var perguntasFaceis: [Pergunta] = []
     var perguntasMedias: [Pergunta] = []
@@ -42,7 +40,8 @@ class IniciarJogo: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.carregarPerguntas()
+        self.delegate.fetchPerguntas()
+        
         self.setupScreen()
         
         self.navigationItem.setHidesBackButton(true, animated: true)
@@ -69,6 +68,11 @@ class IniciarJogo: UIViewController {
         controller.delegate = self
         
         self.navigationController?.pushViewController(controller, animated: true)
+    }
+    
+    func onPerguntasCarregadas(questoes: [Pergunta]) {
+        self.perguntas = questoes
+        self.carregarPerguntas()
     }
     
     private func tocarSom() {
